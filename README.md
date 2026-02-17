@@ -1,1 +1,1 @@
-# aithetic
+# aitetic
