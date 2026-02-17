@@ -3,16 +3,24 @@ from pathlib import Path
 import json
 
 
+def filter_str(s: str) -> str:
+    import re
+    if s is not None:
+        s = re.sub(r"\s+([.,!?:;\)])", r"\1", s)   # пробелы перед пунктуацией и ')'
+        s = re.sub(r"(\()\s+", r"\1", s)           # пробелы после '('
+    return s
+
+
 def clean_text_keep_words(tag):
     """Remove <a> tags, and return only clear cleaned text."""
     if tag is None:
         return ""
     for a in tag.select("a"):
         a.unwrap()
-    return tag.get_text(" ", strip=True)
+    return filter_str(tag.get_text(" ", strip=True))
 
 
-html = Path("html/cambridge.org/STAY _ English meaning - Cambridge Dictionary.html").read_text(encoding="utf-8")
+html = Path("html/cambridge.org/PUT _ English meaning - Cambridge Dictionary.html").read_text(encoding="utf-8")
 soup = BeautifulSoup(html, "lxml")
 
 
@@ -35,45 +43,61 @@ print(pos_items)
 
 #############################################################################
 
-# один проход в DOM-порядке
-stream = soup.select("div.def.ddef_d.db, div.examp.dexamp")
+# one pass by DOM-ordered elements
 
 groups = []
-current = None
 
-for el in stream:
-    classes = el.get("class", [])
+stream = soup.select("div.sense-body.dsense_b")
 
-    # DEF
-    if "def" in classes and "ddef_d" in classes and "db" in classes:
-        def_text = clean_text_keep_words(el)
-        current = {"def": def_text, "examples": []}
-        groups.append(current)
-        continue
+for body in stream:
 
-    # EXAMPLE
-    if "examp" in classes and "dexamp" in classes: #("div.examp.dexamp"):
-        lu = el.select_one("span.lu.dlu")
-        eg = el.select_one("span.eg.deg")
+    blocks = body.select("div.def.ddef_d.db, div.examp.dexamp, li.eg.dexamp.hax")
 
-        if lu:
-            key = clean_text_keep_words(lu)
-        else:
-            key = head_item
+    current = None
 
-        val = clean_text_keep_words(eg)
+    for el in blocks:
+        classes = el.get("class", [])
 
-        # если пример встретился до первого def — можно создать “пустую” группу
-        if current is None:
-            current = {"def": None, "examples": []}
+        # DEF
+        if "def" in classes and "ddef_d" in classes and "db" in classes:
+            def_text = clean_text_keep_words(el)
+            current = {"def": def_text, "examples": []}
             groups.append(current)
+            continue
 
-        current["examples"].append({"term": key, "text": val})
+        # EXAMPLE
+        if "examp" in classes and "dexamp" in classes: #("div.examp.dexamp"):
+            lu = el.select_one("span.lu.dlu")
+            eg = el.select_one("span.eg.deg")
 
+            if lu:
+                key = clean_text_keep_words(lu)
+            else:
+                key = head_item
+
+            val = clean_text_keep_words(eg)
+
+            # если пример встретился до первого def — можно создать “пустую” группу
+            if current is None:
+                current = {"def": None, "examples": []}
+                groups.append(current)
+
+            current["examples"].append({"term": key, "text": val})
+
+
+        if el.name == "li" and "eg" in classes and "dexamp" in classes and "hax" in classes:
+            li = clean_text_keep_words(el)
+            if li:
+                current.setdefault("list", []).append({"term": head_item, "text": li})
+
+
+total_items = sum(len(g.get("examples", [])) for g in groups)
+total_items += sum(len(g.get("list", [])) for g in groups)
 
 # show results
-print("defs:", len(groups))
 print(groups[0] if groups else None)
+print("defs:", len(groups), "total_items:", total_items)
+
 
 # save jsonl
 out_path = Path("data/cambridge.org-dataset.jsonl")
