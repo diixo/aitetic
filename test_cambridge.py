@@ -23,23 +23,28 @@ def clean_text_keep_words(tag):
 html = Path("html/cambridge.org/PUT _ English meaning - Cambridge Dictionary.html").read_text(encoding="utf-8")
 soup = BeautifulSoup(html, "lxml")
 
+head_item = None
 
 hdr = soup.select_one("div.pos-header.dpos-h")
-if not hdr:
-    raise RuntimeError("pos-header not found")
+if hdr:
+    # 1) head_item
+    hw_el = hdr.select_one("span.hw.dhw")
+    head_item = hw_el.get_text(" ", strip=True) if hw_el else None
 
-# 1) head_item
-hw_el = hdr.select_one("span.hw.dhw")
-head_item = hw_el.get_text(" ", strip=True) if hw_el else None
+    # 2) parts of speech (pos as definition)
+    pos_items = [
+        {"def": p.get_text(" ", strip=True), "title": p.get("title")}
+        for p in hdr.select("span.pos.dpos")
+    ]
+    print(pos_items)
 
-# 2) parts of speech (pos as definition)
-pos_items = [
-    {"def": p.get_text(" ", strip=True), "title": p.get("title")}
-    for p in hdr.select("span.pos.dpos")
-]
+
+if not head_item:
+    tb = soup.select_one("h1.fs span.tb")
+    head_item = filter_str(tb.get_text(strip=True)) if tb else None
+
 
 print(head_item)
-print(pos_items)
 
 #############################################################################
 
@@ -61,7 +66,7 @@ for body in stream:
         # DEF
         if "def" in classes and "ddef_d" in classes and "db" in classes:
             def_text = clean_text_keep_words(el)
-            current = {"def": def_text, "examples": []}
+            current = {"title": head_item, "def": def_text, "examples": []}
             groups.append(current)
             continue
 
@@ -79,7 +84,7 @@ for body in stream:
 
             # если пример встретился до первого def — можно создать “пустую” группу
             if current is None:
-                current = {"def": None, "examples": []}
+                current = {"title": head_item, "def": None, "examples": []}
                 groups.append(current)
 
             current["examples"].append({"term": key, "text": val})
@@ -90,6 +95,20 @@ for body in stream:
             if li:
                 current.setdefault("list", []).append({"term": head_item, "text": li})
 
+##########################
+# read separated example-page
+
+stream = soup.select("div.dexamp.fs16.fs18-s.ti")
+
+for body in stream:
+    txt = body.select_one("span.deg").get_text(" ", strip=True)
+    txt = filter_str(txt)
+
+    current = {"title": head_item, "list": [{"term": head_item, "text": txt}]}
+
+    groups.append(current)
+
+##########################
 
 total_items = sum(len(g.get("examples", [])) for g in groups)
 total_items += sum(len(g.get("list", [])) for g in groups)
