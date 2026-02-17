@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from pathlib import Path
 import json
-from pathlib import Path
 
 
 def filter_str(s: str) -> str:
