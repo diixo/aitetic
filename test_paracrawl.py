@@ -42,5 +42,3 @@ if __name__ == "__main__":
 
 print(40*"#")
 print("unique words:", len(sorted(words)))
-
-file_name = "html/STAY _ English meaning - Cambridge Dictionary.html"
