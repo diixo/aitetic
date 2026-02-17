@@ -20,107 +20,118 @@ def clean_text_keep_words(tag):
     return filter_str(tag.get_text(" ", strip=True))
 
 
-html = Path("html/cambridge.org/PUT _ English meaning - Cambridge Dictionary.html").read_text(encoding="utf-8")
-soup = BeautifulSoup(html, "lxml")
+def parse_file(file_path: str):
 
-head_item = None
+    html = Path(file_path).read_text(encoding="utf-8")
+    soup = BeautifulSoup(html, "lxml")
 
-hdr = soup.select_one("div.pos-header.dpos-h")
-if hdr:
-    # 1) head_item
-    hw_el = hdr.select_one("span.hw.dhw")
-    head_item = hw_el.get_text(" ", strip=True) if hw_el else None
+    head_item = None
 
-    # 2) parts of speech (pos as definition)
-    pos_items = [
-        {"def": p.get_text(" ", strip=True), "title": p.get("title")}
-        for p in hdr.select("span.pos.dpos")
-    ]
-    print(pos_items)
+    hdr = soup.select_one("div.pos-header.dpos-h")
+    if hdr:
+        # 1) head_item
+        hw_el = hdr.select_one("span.hw.dhw")
+        head_item = hw_el.get_text(" ", strip=True) if hw_el else None
 
-
-if not head_item:
-    tb = soup.select_one("h1.fs span.tb")
-    head_item = filter_str(tb.get_text(strip=True)) if tb else None
+        # 2) parts of speech (pos as definition)
+        pos_items = [
+            {"def": p.get_text(" ", strip=True), "title": p.get("title")}
+            for p in hdr.select("span.pos.dpos")
+        ]
+        print(pos_items)
 
 
-print(head_item)
+    if not head_item:
+        tb = soup.select_one("h1.fs span.tb")
+        head_item = filter_str(tb.get_text(strip=True)) if tb else None
 
-#############################################################################
 
-# one pass by DOM-ordered elements
+    print(head_item)
 
-groups = []
+    #############################################################################
 
-stream = soup.select("div.sense-body.dsense_b")
+    # one pass by DOM-ordered elements
 
-for body in stream:
+    groups = []
 
-    blocks = body.select("div.def.ddef_d.db, div.examp.dexamp, li.eg.dexamp.hax")
+    stream = soup.select("div.sense-body.dsense_b")
 
-    current = None
+    for body in stream:
 
-    for el in blocks:
-        classes = el.get("class", [])
+        blocks = body.select("div.def.ddef_d.db, div.examp.dexamp, li.eg.dexamp.hax")
 
-        # DEF
-        if "def" in classes and "ddef_d" in classes and "db" in classes:
-            def_text = clean_text_keep_words(el)
-            current = {"title": head_item, "def": def_text, "examples": []}
-            groups.append(current)
-            continue
+        current = None
 
-        # EXAMPLE
-        if "examp" in classes and "dexamp" in classes: #("div.examp.dexamp"):
-            lu = el.select_one("span.lu.dlu")
-            eg = el.select_one("span.eg.deg")
+        for el in blocks:
+            classes = el.get("class", [])
 
-            if lu:
-                key = clean_text_keep_words(lu)
-            else:
-                key = head_item
-
-            val = clean_text_keep_words(eg)
-
-            # если пример встретился до первого def — можно создать “пустую” группу
-            if current is None:
-                current = {"title": head_item, "def": None, "examples": []}
+            # DEF
+            if "def" in classes and "ddef_d" in classes and "db" in classes:
+                def_text = clean_text_keep_words(el)
+                current = {"title": head_item, "def": def_text, "examples": []}
                 groups.append(current)
+                continue
 
-            current["examples"].append({"term": key, "text": val})
+            # EXAMPLE
+            if "examp" in classes and "dexamp" in classes: #("div.examp.dexamp"):
+                lu = el.select_one("span.lu.dlu")
+                eg = el.select_one("span.eg.deg")
 
+                if lu:
+                    key = clean_text_keep_words(lu)
+                else:
+                    key = head_item
 
-        if el.name == "li" and "eg" in classes and "dexamp" in classes and "hax" in classes:
-            li = clean_text_keep_words(el)
-            if li:
-                current.setdefault("list", []).append({"term": head_item, "text": li})
+                val = clean_text_keep_words(eg)
 
-##########################
-# read separated example-page
+                # если пример встретился до первого def — можно создать “пустую” группу
+                if current is None:
+                    current = {"title": head_item, "def": None, "examples": []}
+                    groups.append(current)
 
-stream = soup.select("div.dexamp.fs16.fs18-s.ti")
-
-for body in stream:
-    txt = body.select_one("span.deg").get_text(" ", strip=True)
-    txt = filter_str(txt)
-
-    current = {"title": head_item, "list": [{"term": head_item, "text": txt}]}
-
-    groups.append(current)
-
-##########################
-
-total_items = sum(len(g.get("examples", [])) for g in groups)
-total_items += sum(len(g.get("list", [])) for g in groups)
-
-# show results
-print(groups[0] if groups else None)
-print("defs:", len(groups), "total_items:", total_items)
+                current["examples"].append({"term": key, "text": val})
 
 
-# save jsonl
-out_path = Path("data/cambridge.org-dataset.jsonl")
-with out_path.open("w", encoding="utf-8") as f:
-    for i, g in enumerate(groups):
-        rec = {"idx": i, **g}
-        f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+            if el.name == "li" and "eg" in classes and "dexamp" in classes and "hax" in classes:
+                li = clean_text_keep_words(el)
+                if li:
+                    current.setdefault("list", []).append({"term": head_item, "text": li})
+
+    ##########################
+    # read separated example-page
+
+    stream = soup.select("div.dexamp.fs16.fs18-s.ti")
+
+    for body in stream:
+        txt = body.select_one("span.deg").get_text(" ", strip=True)
+        txt = filter_str(txt)
+
+        current = {"title": head_item, "list": [{"term": head_item, "text": txt}]}
+
+        groups.append(current)
+
+    ##########################
+
+    total_items = sum(len(g.get("examples", [])) for g in groups)
+    total_items += sum(len(g.get("list", [])) for g in groups)
+
+    # show results
+    print(groups[0] if groups else None)
+    print("defs:", len(groups), "total_items:", total_items)
+
+    return groups
+
+
+if __name__ == "__main__":
+
+    dir = "html/cambridge.org/"
+
+    file_path = dir + "PUT _ English meaning - Cambridge Dictionary.html"
+    groups = parse_file(file_path)
+
+    # save jsonl
+    out_path = Path("data/cambridge.org-dataset.jsonl")
+    with out_path.open("w", encoding="utf-8") as f:
+        for i, g in enumerate(groups):
+            rec = {"idx": i, **g}
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
