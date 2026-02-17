@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from pathlib import Path
 import json
+from pathlib import Path
 
 
 def filter_str(s: str) -> str:
@@ -25,6 +26,8 @@ def parse_file(file_path: str):
     html = Path(file_path).read_text(encoding="utf-8")
     soup = BeautifulSoup(html, "lxml")
 
+    groups = []
+
     head_item = None
 
     hdr = soup.select_one("div.pos-header.dpos-h")
@@ -33,12 +36,16 @@ def parse_file(file_path: str):
         hw_el = hdr.select_one("span.hw.dhw")
         head_item = hw_el.get_text(" ", strip=True) if hw_el else None
 
-        # 2) parts of speech (pos as definition)
+        # 2) parts of phrase (pos as definition)
         pos_items = [
-            {"def": p.get_text(" ", strip=True), "title": p.get("title")}
+            {"term": p.get_text(" ", strip=True), "def": p.get("title")}
             for p in hdr.select("span.pos.dpos")
         ]
-        print(pos_items)
+
+        if head_item and len(pos_items) > 0:
+            current = {"phrase": head_item, "definitions": pos_items}
+            groups.append(current)
+        #print(pos_items)
 
 
     if not head_item:
@@ -51,8 +58,6 @@ def parse_file(file_path: str):
     #############################################################################
 
     # one pass by DOM-ordered elements
-
-    groups = []
 
     stream = soup.select("div.sense-body.dsense_b")
 
@@ -68,7 +73,7 @@ def parse_file(file_path: str):
             # DEF
             if "def" in classes and "ddef_d" in classes and "db" in classes:
                 def_text = clean_text_keep_words(el)
-                current = {"title": head_item, "def": def_text, "examples": []}
+                current = {"phrase": head_item, "def": def_text, "examples": []}
                 groups.append(current)
                 continue
 
@@ -86,7 +91,7 @@ def parse_file(file_path: str):
 
                 # если пример встретился до первого def — можно создать “пустую” группу
                 if current is None:
-                    current = {"title": head_item, "def": None, "examples": []}
+                    current = {"phrase": head_item, "def": None, "examples": []}
                     groups.append(current)
 
                 current["examples"].append({"term": key, "text": val})
@@ -106,7 +111,7 @@ def parse_file(file_path: str):
         txt = body.select_one("span.deg").get_text(" ", strip=True)
         txt = filter_str(txt)
 
-        current = {"title": head_item, "list": [{"term": head_item, "text": txt}]}
+        current = {"phrase": head_item, "list": [{"term": head_item, "text": txt}]}
 
         groups.append(current)
 
@@ -124,9 +129,17 @@ def parse_file(file_path: str):
 
 if __name__ == "__main__":
 
-    dir = "html/cambridge.org/"
+    html_dir = "html/cambridge.org/"
 
-    file_path = dir + "PUT _ English meaning - Cambridge Dictionary.html"
+    p = Path(html_dir)
+
+    html_files = [x.name for x in p.iterdir()
+        if x.is_file() and x.suffix.lower() in (".html", ".htm")
+    ]
+
+    #print(html_files)
+
+    file_path = html_dir + "PUT _ English meaning - Cambridge Dictionary.html"
     groups = parse_file(file_path)
 
     # save jsonl
