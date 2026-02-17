@@ -1,0 +1,19 @@
+*.pyc
+*__pycache__/
+
+# Environments
+.env
+.env-django
+.env-server
+.venv
+env/
+venv/
+ENV/
+env.bak/
+
+log.txt
+
+models/
+datasets/
+train_products/
+train_product/
