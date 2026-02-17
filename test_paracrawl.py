@@ -66,6 +66,16 @@ if __name__ == "__main__":
 
     load_translation_file("data/manythings.org/por.txt", texts)
 
+    load_translation_file("data/manythings.org/jpn.txt", texts)
+
+    load_translation_file("data/manythings.org/ita.txt", texts)
+
+    load_translation_file("data/manythings.org/ukr.txt", texts)
+
+    load_translation_file("data/manythings.org/heb.txt", texts)
+
+    load_translation_file("data/manythings.org/pol.txt", texts)
+
     out_path = Path("data/eng-base.jsonl")
     with out_path.open("w", encoding="utf-8") as f:
         i = 1
@@ -74,5 +84,5 @@ if __name__ == "__main__":
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
             i += 1
 
-print(40*"#")
-print("unique words:", len(texts.items()))
+    print(40*"#")
+    print("unique words:", len(texts.items()))
