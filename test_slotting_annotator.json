@@ -1,0 +1,105 @@
+[
+  {
+    "example": "He was exposed to the cold for too long.",
+    "annotation": {
+      "example": "He was exposed to the cold for too long.",
+      "events": [
+        {
+          "action_text": "exposed",
+          "action": "expose",
+          "tense": "past",
+          "tense_aspect": "simple",
+          "time_relation": "past",
+          "subject": "He",
+          "object": null,
+          "prep": "to",
+          "prep_object": "the cold"
+        }
+      ]
+    }
+  },
+  {
+    "example": "His crimes were exposed to the public.",
+    "annotation": {
+      "example": "His crimes were exposed to the public.",
+      "events": [
+        {
+          "action_text": "exposed",
+          "action": "expose",
+          "tense": "past",
+          "tense_aspect": "simple",
+          "time_relation": "past",
+          "subject": "His crimes",
+          "object": null,
+          "prep": "to",
+          "prep_object": "the public"
+        }
+      ]
+    }
+  },
+  {
+    "example": "Don't expect good work from him; he is lazy and careless.",
+    "annotation": {
+      "example": "Don't expect good work from him; he is lazy and careless.",
+      "events": [
+        {
+          "action_text": "expect",
+          "action": "expect",
+          "tense": "present",
+          "tense_aspect": "simple",
+          "time_relation": "present",
+          "subject": "you",
+          "object": "good work",
+          "prep": "from",
+          "prep_object": "him",
+          "mood": "imperative",
+          "speech_act": "directive",
+          "polarity": "negative"
+        },
+        {
+          "action_text": "is",
+          "action": "be",
+          "tense": "present",
+          "tense_aspect": "simple",
+          "time_relation": "present",
+          "subject": "he",
+          "object": "lazy and careless",
+          "prep": null,
+          "prep_object": null
+        }
+      ]
+    }
+  },
+  {
+    "example": "He fell off the bicycle and hurt his leg.",
+    "annotation": {
+      "example": "He fell off the bicycle and hurt his leg.",
+      "events": [
+        {
+          "action_text": "fell off",
+          "action": "fall off",
+          "tense": "past",
+          "tense_aspect": "simple",
+          "time_relation": "past",
+          "subject": "He",
+          "object": null,
+          "prep": "off",
+          "prep_object": "the bicycle"
+        },
+        {
+          "action_text": "hurt",
+          "action": "hurt",
+          "tense": "present",
+          "tense_aspect": "simple",
+          "time_relation": "present",
+          "subject": "He",
+          "object": "his leg",
+          "prep": null,
+          "prep_object": null,
+          "mood": "imperative",
+          "speech_act": "directive"
+        }
+      ]
+    }
+  }
+]

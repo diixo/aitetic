@@ -59,13 +59,14 @@ def t5_split_clauses(sentence: str) -> list[str]:
     prompt = (
         "Task: split_into_clauses\n"
         f"Sentence: {sentence}\n"
-        "Split the sentence into minimal clauses/events.\n"
-        "Return only the clauses separated by ' | ' (pipe).\n"
+        "Split the given Sentence into minimal clauses/events.\n"
+        "Return ONLY clauses taken verbatim from the Sentence.\n"
+        "Use this format: clause1 | clause2 | clause3\n"
         "Rules:\n"
-        "- Keep the original words (no paraphrasing).\n"
-        "- Do NOT add or remove meaning.\n"
-        "- Do NOT add numbering or extra text.\n"
-        "Example output: Don't expect good work from him | he is lazy and careless\n"
+        "- Do NOT paraphrase.\n"
+        "- Do NOT invent text.\n"
+        "- Do NOT add explanations.\n"
+        "- Every returned clause must appear in the Sentence.\n"
     )
 
     raw = _t5_generate(prompt, max_new_tokens=80)
@@ -74,23 +75,20 @@ def t5_split_clauses(sentence: str) -> list[str]:
     parts = [p.strip() for p in raw.split("|")]
     parts = [p for p in parts if p]
 
-    # basic validation
-    def ok_clause(c: str) -> bool:
-        # length and at least one letter
-        return len(c) >= 3 and any(ch.isalpha() for ch in c)
+    def norm(s: str) -> str:
+        return " ".join(s.lower().split())
 
-    parts = [p for p in parts if ok_clause(p)]
+    sent_n = norm(sentence)
+    valid = [p for p in parts if norm(p) in sent_n]
 
-    # fallback if T5 gives junk / single clause that's obviously wrong
-    if not parts:
-        return [s.strip() for s in sentence.split(";") if s.strip()] or [sentence.strip()]
+    # if T5 output invalid -> fallback
+    if not valid:
+        # simple fallback: split by semicolon (and trim)
+        fb = [p.strip() for p in sentence.split(";") if p.strip()]
+        return fb if fb else [sentence.strip()]
 
-    # If T5 returns one clause identical to full sentence -> still ok
-    # But if it returns one clause that is very short -> fallback
-    if len(parts) == 1 and len(parts[0]) < max(6, len(sentence) // 6):
-        return [s.strip() for s in sentence.split(";") if s.strip()] or [sentence.strip()]
+    return valid
 
-    return parts
 
 
 # ---------------- spaCy ----------------
@@ -458,5 +456,18 @@ def annotate(sentence: str) -> dict:
 
 # ---------------- demo ----------------
 if __name__ == "__main__":
-    s = "Don't expect good work from him; he is lazy and careless."
+
+    s = "His crimes were exposed to the public."
     print(json.dumps(annotate(s), ensure_ascii=False, indent=2))
+
+    examples = [
+        "He was exposed to the cold for too long.",
+        "His crimes were exposed to the public.",
+        "Don't expect good work from him; he is lazy and careless.",
+        "He fell off the bicycle and hurt his leg.",
+    ]
+
+    data = [{ "example": s, "annotation": annotate(s) } for s in examples]
+
+    with open("test_slotting_annotator.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
