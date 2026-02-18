@@ -76,6 +76,22 @@ if __name__ == "__main__":
 
     load_translation_file("data/manythings.org/pol.txt", texts)
 
+    load_translation_file("data/manythings.org/ces.txt", texts)
+
+    load_translation_file("data/manythings.org/fin.txt", texts)
+
+    load_translation_file("data/manythings.org/hun.txt", texts)
+
+    load_translation_file("data/manythings.org/nld.txt", texts)
+
+    load_translation_file("data/manythings.org/mkd.txt", texts)
+
+    load_translation_file("data/manythings.org/dan.txt", texts)
+
+    load_translation_file("data/manythings.org/ron.txt", texts)
+
+    load_translation_file("data/manythings.org/ber.txt", texts)
+
     out_path = Path("data/eng-base.jsonl")
     with out_path.open("w", encoding="utf-8") as f:
         i = 1
