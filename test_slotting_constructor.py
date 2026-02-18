@@ -44,6 +44,12 @@ matcher.add("FALL_IN_LOVE", [[
     {"LOWER": "love"}
 ]])
 
+matcher.add("FALL_IN_WITH", [[
+    {"LEMMA": "fall"},
+    {"LOWER": "in"},
+    {"LOWER": "with"}
+]])
+
 # если хочешь разрешить вставки типа "madly", "deeply":
 matcher.add("FALL_IN_LOVE_FLEX", [[
     {"LEMMA": "fall"},
@@ -56,6 +62,46 @@ PARTICLE_WORDS = {
     "apart", "up", "down", "off", "out", "away", "back", "over", "around",
     "through", "along", "aside", "together"
 }
+
+def _extract_object_span(doc, root):
+    """
+    Direct object of the main verb (obj/dobj).
+    """
+    for c in root.children:
+        if c.dep_ in ("dobj", "obj"):
+            return doc[c.left_edge.i : c.right_edge.i + 1]
+    return None
+
+
+def _extract_prep_object(doc, root, preferred_preps=None):
+    """
+    Prepositional object: finds prep -> pobj chain.
+    Returns (prep, prep_object_text) or (None, None).
+
+    preferred_preps: set of prepositions to prefer (e.g. {"with","to"}).
+    """
+    preferred_preps = set(preferred_preps or [])
+
+    candidates = []
+    for c in root.children:
+        if c.dep_ == "prep":
+            prep = c
+            # pobj under this prep
+            pobj = next((x for x in prep.children if x.dep_ == "pobj"), None)
+            if pobj is None:
+                continue
+            span = doc[pobj.left_edge.i : pobj.right_edge.i + 1]
+            score = 1
+            if prep.lower_ in preferred_preps:
+                score += 10
+            candidates.append((score, prep.lower_, span.text))
+
+    if not candidates:
+        return None, None
+
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    _, prep, pobj_text = candidates[0]
+    return prep, pobj_text
 
 
 def _verb_phrase_with_particles(doc, verb, matcher):
@@ -176,6 +222,13 @@ def annotate(sentence: str) -> dict:
     subj_span = _extract_subject_span(doc, root)
     subject = subj_span.text if subj_span is not None else None
 
+
+    obj_span = _extract_object_span(doc, root)
+    obj_text = obj_span.text if obj_span is not None else None
+
+    prep, prep_object = _extract_prep_object(doc, root, preferred_preps={"with", "to", "into", "for", "from", "of"})
+
+
     tense, aspect, time_relation = _tense_aspect(root)
 
     return {
@@ -185,7 +238,10 @@ def annotate(sentence: str) -> dict:
         "tense": tense,
         "tense_aspect": aspect,
         "time_relation": time_relation,
-        "subject": subject
+        "subject": subject,
+        "object": obj_text,
+        "prep": prep,
+        "prep_object": prep_object
     }
 
 
