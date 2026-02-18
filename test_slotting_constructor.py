@@ -30,34 +30,69 @@ Person_names = [
 
 
 import json
+from annotated_types import doc
 import spacy
+from spacy.matcher import Matcher
+
 
 nlp = spacy.load("en_core_web_sm")
+matcher = Matcher(nlp.vocab)
+
+matcher.add("FALL_IN_LOVE", [[
+    {"LEMMA": "fall"},
+    {"LOWER": "in"},
+    {"LOWER": "love"}
+]])
+
+# если хочешь разрешить вставки типа "madly", "deeply":
+matcher.add("FALL_IN_LOVE_FLEX", [[
+    {"LEMMA": "fall"},
+    {"LOWER": "in"},
+    {"OP": "*", "POS": {"IN": ["ADV", "ADJ"]}},   # optional modifiers
+    {"LOWER": "love"}
+]])
 
 PARTICLE_WORDS = {
-    "apart", "up", "down", "off", "out", "in", "away", "back", "over", "around",
+    "apart", "up", "down", "off", "out", "away", "back", "over", "around",
     "through", "along", "aside", "together"
 }
 
-def _verb_phrase_with_particles(verb):
-    # collect likely particles among children
+
+def _verb_phrase_with_particles(doc, verb, matcher):
+    # 1) MWE matcher first (e.g. "fell in love")
+    matches = matcher(doc)
+    if matches:
+        m_id, start, end = max(matches, key=lambda x: x[2] - x[1])
+        span = doc[start:end]
+        action_text = span.text
+        action = " ".join(t.lemma_ for t in span)
+        return action_text, action
+
+    # 2) collect likely particles among children
     particle_children = []
     for c in verb.children:
         if c.dep_ == "prt":
             particle_children.append(c)
-        elif c.dep_ == "advmod" and c.lower_ in PARTICLE_WORDS:
-            particle_children.append(c)
-        # иногда частица имеет тег RP
         elif c.tag_ == "RP":
             particle_children.append(c)
+        elif c.dep_ == "advmod" and c.lower_ in PARTICLE_WORDS:
+            particle_children.append(c)
+
+    # 3) catch separable particle to the right: "pick the book up"
+    WINDOW = 4
+    for i in range(verb.i + 1, min(len(doc), verb.i + 1 + WINDOW)):
+        t = doc[i]
+        if t.lower_ in PARTICLE_WORDS and (t.tag_ == "RP" or t.pos_ == "ADV"):
+            if all(p.i != t.i for p in particle_children):
+                particle_children.append(t)
 
     parts = sorted([verb] + particle_children, key=lambda t: t.i)
     action_text = " ".join(t.text for t in parts)
 
-    lemma_parts = [verb.lemma_] + [p.lemma_ for p in particle_children]
-    lemma_action = " ".join(lemma_parts)
+    lemma_parts = [verb.lemma_] + [p.lemma_ for p in sorted(particle_children, key=lambda t: t.i)]
+    action = " ".join(lemma_parts)
 
-    return action_text, lemma_action
+    return action_text, action
 
 
 def _extract_subject_span(doc, root):
@@ -132,15 +167,11 @@ def _tense_aspect(root):
 def annotate(sentence: str) -> dict:
 
     doc = nlp(sentence)
-
-    # take the main clause root
     root = next((t for t in doc if t.dep_ == "ROOT"), None)
-
     if root is None:
-        # fallback: no parse
         return {"example": sentence}
 
-    action_text, action = _verb_phrase_with_particles(root)
+    action_text, action = _verb_phrase_with_particles(doc, root, matcher)
 
     subj_span = _extract_subject_span(doc, root)
     subject = subj_span.text if subj_span is not None else None
@@ -160,7 +191,11 @@ def annotate(sentence: str) -> dict:
 
 if __name__ == "__main__":
     
-    txt = "His business is falling apart."
+    txt = "She fell in love with jazz music."
+
+    #txt = "His business is falling apart."
+
+    txt = "She fell in with a strange crowd of people at university."
 
     result = annotate(txt)
 
