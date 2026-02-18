@@ -370,7 +370,10 @@ def annotate_clause(clause: str) -> list[dict]:
         speech_act = None
         polarity = _polarity(v)
 
-        if _is_imperative(doc, v):
+        is_conj = (v.dep_ == "conj")
+        has_fallback_subject = (subj_span is None and root_subject is not None)
+
+        if _is_imperative(doc, v) and not (is_conj and has_fallback_subject):
             mood = "imperative"
             speech_act = "directive"
             if subject is None:
@@ -398,6 +401,12 @@ def annotate_clause(clause: str) -> list[dict]:
                         break
 
         tense, aspect, time_relation = _tense_aspect(v)
+
+        if v.dep_ == "conj":
+            root_tense, root_aspect, root_time = _tense_aspect(root)
+            # если у v получилось "present", а root "past" — часто это как раз case "hurt"
+            if tense == "present" and root_tense == "past":
+                tense, aspect, time_relation = root_tense, root_aspect, root_time
 
         if mood == "imperative":
             tense = "present"
@@ -457,17 +466,20 @@ def annotate(sentence: str) -> dict:
 # ---------------- demo ----------------
 if __name__ == "__main__":
 
-    s = "His crimes were exposed to the public."
-    print(json.dumps(annotate(s), ensure_ascii=False, indent=2))
+    # s = "His crimes were exposed to the public."
+    # print(json.dumps(annotate(s), ensure_ascii=False, indent=2))
 
-    examples = [
-        "He was exposed to the cold for too long.",
-        "His crimes were exposed to the public.",
-        "Don't expect good work from him; he is lazy and careless.",
-        "He fell off the bicycle and hurt his leg.",
-    ]
+    # examples = [
+    #     "He was exposed to the cold for too long.",
+    #     "His crimes were exposed to the public.",
+    #     "Don't expect good work from him; he is lazy and careless.",
+    #     "He fell off the bicycle and hurt his leg.",
+    # ]
 
-    data = [annotate(s) for s in examples]
+    with open("test_slotting_annotator.json", "r", encoding="utf-8") as f:
+        dataset = json.load(f)
+
+    data = [annotate(s["example"]) for s in dataset]
 
     with open("test_slotting_annotator.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

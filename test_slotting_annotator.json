@@ -78,15 +78,13 @@
       {
         "action_text": "hurt",
         "action": "hurt",
-        "tense": "present",
+        "tense": "past",
         "tense_aspect": "simple",
-        "time_relation": "present",
+        "time_relation": "past",
         "subject": "He",
         "object": "his leg",
         "prep": null,
-        "prep_object": null,
-        "mood": "imperative",
-        "speech_act": "directive"
+        "prep_object": null
       }
     ]
   }
