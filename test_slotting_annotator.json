@@ -87,5 +87,64 @@
         "prep_object": null
       }
     ]
+  },
+  {
+    "example": "They fell in love and got married.",
+    "annotation": [
+      {
+        "action_text": "fell in love",
+        "action": "fall in love",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "They",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      },
+      {
+        "action_text": "got married",
+        "action": "get marry",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "They",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "He fell in love with Mary.",
+    "annotation": [
+      {
+        "action_text": "fell in love",
+        "action": "fall in love",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "He",
+        "object": null,
+        "prep": "with",
+        "prep_object": "Mary"
+      }
+    ]
+  },
+  {
+    "example": "She fell in love with jazz music.",
+    "annotation": [
+      {
+        "action_text": "fell in love",
+        "action": "fall in love",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "She",
+        "object": null,
+        "prep": "with",
+        "prep_object": "jazz music"
+      }
+    ]
   }
 ]
