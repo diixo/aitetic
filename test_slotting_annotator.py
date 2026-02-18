@@ -569,6 +569,9 @@ def annotate_clause(clause: str) -> list[dict]:
 
 # ---------------- annotate full sentence: T5 split -> annotate each clause -> merge ----------------
 def annotate(sentence: str) -> dict:
+
+    print("...Annotating:", sentence)
+
     clauses = t5_split_clauses(sentence)
     all_events = []
     for cl in clauses:
@@ -595,6 +598,8 @@ if __name__ == "__main__":
         dataset = json.load(f)
 
     data = [s["example"] for s in dataset]
+
+    print("Unique examples in dataset:", len(set(data)))
 
     data = [annotate(s) for s in data]
 
