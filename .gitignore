@@ -5,7 +5,7 @@
 .env
 .env-django
 .env-server
-.venv
+.venv*
 env/
 venv/
 ENV/
