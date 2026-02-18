@@ -4,6 +4,7 @@ import torch
 import spacy
 from spacy.matcher import Matcher
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from utils import load_mwe_phrases
 
 
 # ---------------- T5 ----------------
@@ -96,12 +97,9 @@ def t5_split_clauses(sentence: str) -> list[str]:
 nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
 
-matcher.add("FALL_IN_LOVE", [[{"LEMMA": "fall"}, {"LOWER": "in"}, {"LOWER": "love"}]])
-matcher.add(
-    "FALL_IN_LOVE_FLEX",
-    [[{"LEMMA": "fall"}, {"LOWER": "in"}, {"OP": "*", "POS": {"IN": ["ADV", "ADJ"]}}, {"LOWER": "love"}]],
-)
-matcher.add("FALL_IN_WITH", [[{"LEMMA": "fall"}, {"LOWER": "in"}, {"LOWER": "with"}]])
+# вместо ручных matcher.add(...)
+added = load_mwe_phrases("mwe.txt", matcher)
+print("Loaded MWEs:", len(added))
 
 PARTICLE_WORDS = {
     "apart",
