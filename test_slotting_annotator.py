@@ -451,7 +451,7 @@ def annotate(sentence: str) -> dict:
     # remove debug field if you don't want it in dataset:
     for ev in all_events:
         ev.pop("clause", None)
-    return {"example": sentence, "events": all_events}
+    return {"example": sentence, "annotation": all_events}
 
 
 # ---------------- demo ----------------
@@ -467,7 +467,7 @@ if __name__ == "__main__":
         "He fell off the bicycle and hurt his leg.",
     ]
 
-    data = [{ "example": s, "annotation": annotate(s) } for s in examples]
+    data = [annotate(s) for s in examples]
 
     with open("test_slotting_annotator.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
