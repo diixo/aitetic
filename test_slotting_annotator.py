@@ -542,7 +542,7 @@ def annotate_clause(clause: str) -> list[dict]:
 
         # -------- build event --------
         ev = {
-            "action_text": action_text,
+            "action_text": action_text.lower(),
             "action": action,
             "tense": tense,
             "tense_aspect": aspect,
@@ -594,14 +594,30 @@ if __name__ == "__main__":
     #     "He fell off the bicycle and hurt his leg.",
     # ]
 
+    data = []
+
     with open(output_file, "r", encoding="utf-8") as f:
         dataset = json.load(f)
 
-    data = [s["example"] for s in dataset]
+    print("Examples in dataset:", len(dataset))
 
-    print("Unique examples in dataset:", len(set(data)))
+    # force annotate empty annotations
+    for item in dataset:
+        annotation = item.get("annotation", [])
 
-    data = [annotate(s) for s in data]
+        if not annotation:
+            result = annotate(item["example"])
+            item["annotation"] = result["annotation"]
+
+
+    if len(data) > 0:
+        #data = [s["example"] for s in dataset]
+
+        print("Unique examples in dataset:", len(set(data)))
+
+
+        dataset = [annotate(s) for s in data]
+
 
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        json.dump(dataset, f, ensure_ascii=False, indent=2)

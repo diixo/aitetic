@@ -3264,8 +3264,24 @@
     ]
   },
   {
-    "example": "Thanks for buying my ticket. I'll pay you back on Friday.",
+    "example": "Thanks for buying my ticket.",
     "annotation": []
+  },
+  {
+    "example": "I'll pay you back on Friday.",
+    "annotation": [
+      {
+        "action_text": "pay back",
+        "action": "pay back",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "I",
+        "object": "you",
+        "prep": "on",
+        "prep_object": "Friday"
+      }
+    ]
   },
   {
     "example": "That bully will pay for being mean to my little brother.",
@@ -3653,8 +3669,24 @@
     ]
   },
   {
-    "example": "The light's too bright. Could you switch it off.",
+    "example": "The light's too bright.",
     "annotation": []
+  },
+  {
+    "example": "Could you switch it off.",
+    "annotation": [
+      {
+        "action_text": "switch off",
+        "action": "switch off",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "you",
+        "object": "it",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
   },
   {
     "example": "We heard the news as soon as we switched on the car radio.",
@@ -4401,10 +4433,6 @@
         "prep_object": null
       }
     ]
-  },
-  {
-    "example": "Phrasal Verbs: main list from A to C",
-    "annotation": []
   },
   {
     "example": "How can you account for your absence at the meeting?",
@@ -9720,8 +9748,26 @@
     ]
   },
   {
-    "example": "The lifeguards carried on their search for the missing child in spite of the wind and huge waves. Carry on with your work.",
+    "example": "The lifeguards carried on their search for the missing child in spite of the wind and huge waves.",
     "annotation": []
+  },
+  {
+    "example": "Carry on with your work.",
+    "annotation": [
+      {
+        "action_text": "carry on",
+        "action": "carry on",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "you",
+        "object": null,
+        "prep": "with",
+        "prep_object": "your work",
+        "mood": "imperative",
+        "speech_act": "directive"
+      }
+    ]
   },
   {
     "example": "I hate it when she carries on like this.",
@@ -13230,10 +13276,6 @@
     ]
   },
   {
-    "example": "Phrasal Verbs: main list from D to P",
-    "annotation": []
-  },
-  {
     "example": "He decided against selling the house.",
     "annotation": [
       {
@@ -15081,8 +15123,38 @@
     ]
   },
   {
-    "example": "We need rest. Let's get away just for one day.",
-    "annotation": []
+    "example": "We need rest.",
+    "annotation": [
+      {
+        "action_text": "need",
+        "action": "need",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "We",
+        "object": "rest",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "Let's get away just for one day.",
+    "annotation": [
+      {
+        "action_text": "let away",
+        "action": "let away",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "you",
+        "object": null,
+        "prep": null,
+        "prep_object": null,
+        "mood": "imperative",
+        "speech_act": "directive"
+      }
+    ]
   },
   {
     "example": "The robbers managed to get away from the police.",
@@ -18605,8 +18677,60 @@
     ]
   },
   {
-    "example": "Private property! Keep out!",
+    "example": "Private property!",
     "annotation": []
+  },
+  {
+    "example": "Private property: keep out!",
+    "annotation": [
+      {
+        "action_text": "keep out",
+        "action": "keep out",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "Private property",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "Keep out!",
+    "annotation": [
+      {
+        "action_text": "keep out",
+        "action": "keep out",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "you",
+        "object": null,
+        "prep": null,
+        "prep_object": null,
+        "mood": "imperative",
+        "speech_act": "directive"
+      }
+    ]
+  },
+  {
+    "example": "Keep it out!",
+    "annotation": [
+      {
+        "action_text": "keep out",
+        "action": "keep out",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "you",
+        "object": "it",
+        "prep": null,
+        "prep_object": null,
+        "mood": "imperative",
+        "speech_act": "directive"
+      }
+    ]
   },
   {
     "example": "Keep out of this building.",
@@ -22069,8 +22193,24 @@
     ]
   },
   {
-    "example": "Does the TV work? Is it plugged in?",
+    "example": "Does the TV work?",
     "annotation": []
+  },
+  {
+    "example": "Is it plugged in?",
+    "annotation": [
+      {
+        "action_text": "plugged in",
+        "action": "plug in",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "it",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
   },
   {
     "example": "He plugged up the leak in the pipe under the sink.",
@@ -23708,10 +23848,6 @@
     ]
   },
   {
-    "example": "Phrasal Verbs: main words list from Q to Z",
-    "annotation": []
-  },
-  {
     "example": "He quoted (several lines) from his favorite poem.",
     "annotation": [
       {
@@ -24834,8 +24970,38 @@
     ]
   },
   {
-    "example": "Bye! See you around!",
-    "annotation": []
+    "example": "See you around!",
+    "annotation": [
+      {
+        "action_text": "see around",
+        "action": "see around",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": "you",
+        "object": "you",
+        "prep": null,
+        "prep_object": null,
+        "mood": "imperative",
+        "speech_act": "directive"
+      }
+    ]
+  },
+  {
+    "example": "Bye, see you around!",
+    "annotation": [
+      {
+        "action_text": "see around",
+        "action": "see around",
+        "tense": "present",
+        "tense_aspect": "simple",
+        "time_relation": "present",
+        "subject": null,
+        "object": "you",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
   },
   {
     "example": "I saw him off to the airport.",
