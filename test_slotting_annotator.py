@@ -225,23 +225,12 @@ def _is_imperative(doc, verb):
 # ---------------- action: rule-based (MWE + particles + whitelisted prep) ----------------
 def _verb_phrase_with_particles(doc, verb, matcher):
     """
-    Build (action_text, action_lemma) for a specific verb token inside a doc.
-
-    Priority:
-      1) MWE (Matcher) that includes this verb (important for multi-event sentences)
-      2) Verb + particles among children (prt / RP / advmod in PARTICLE_WORDS)
-      2.5) Verb + whitelisted preposition (prep) with pobj (VERB_PREP_WHITELIST)
-      3) Separable particle to the right window (e.g. "pick the book up")
-      4) Generic short predicative complement near the verb (acomp/xcomp/oprd/attr) to catch:
-        # Examples:
-        #   got married (acomp)
-        #   became angry (acomp)
-        #   turned pale (acomp)
-        #   kept quiet (acomp)
-
-    Returns:
-      action_text: surface span like "fell off" / "fell in love" / "got married"
-      action: lemma form like "fall off" / "fall in love" / "get marry"
+    action_text/action:
+      1) MWE (matcher) if span contains this verb
+      2) verb + particles (prt/RP/advmod in PARTICLE_WORDS)
+      3) verb + short prep WITHOUT pobj and very close (e.g. "zoomed by")
+      4) short predicative complement (acomp/xcomp/oprd/attr) close and small ("got married")
+    NOTE: prep WITH pobj is NOT part of action (goes to prep/prep_object).
     """
 
     def _dedup(tokens):
@@ -253,97 +242,108 @@ def _verb_phrase_with_particles(doc, verb, matcher):
                 out.append(t)
         return out
 
-    # ---------- 1) MWE first, ONLY if it contains this verb ----------
+    # 1) MWE that includes this verb
     matches = matcher(doc)
     if matches:
         filtered = [(m_id, s, e) for (m_id, s, e) in matches if s <= verb.i < e]
         if filtered:
-            m_id, start, end = max(filtered, key=lambda x: x[2] - x[1])
+            _, start, end = max(filtered, key=lambda x: x[2] - x[1])
             span = doc[start:end]
             return span.text, " ".join(t.lemma_ for t in span)
 
-    # ---------- 2) collect likely particles among children ----------
-    particle_children = []
+    parts = [verb]
+
+    # 2) prt/RP/advmod particles
     for c in verb.children:
         if c.dep_ == "prt":
-            particle_children.append(c)
+            parts.append(c)
         elif c.tag_ == "RP":
-            particle_children.append(c)
+            parts.append(c)
         elif c.dep_ == "advmod" and c.lower_ in PARTICLE_WORDS:
-            particle_children.append(c)
+            parts.append(c)
 
-    # ---------- 2.5) allow selected preps as part of action (whitelist) ----------
-    allowed_preps = VERB_PREP_WHITELIST.get(verb.lemma_.lower(), set())
-    if allowed_preps:
-        for c in verb.children:
-            if c.dep_ == "prep" and c.lower_ in allowed_preps:
-                if any(x.dep_ == "pobj" for x in c.children):
-                    particle_children.append(c)
+    # 3) prep WITHOUT pobj, very close -> treat as phrasal ("zoomed by")
+    for c in verb.children:
+        if c.dep_ != "prep":
+            continue
+        pobj = next((x for x in c.children if x.dep_ == "pobj"), None)
+        if pobj is not None:
+            continue  # WITH pobj -> NOT part of action
+        if 0 < (c.i - verb.i) <= 2:
+            parts.append(c)
 
-    # ---------- 3) separable particle to the right (window) ----------
-    WINDOW = 5
-    for i in range(verb.i + 1, min(len(doc), verb.i + 1 + WINDOW)):
-        t = doc[i]
-        if t.lower_ in PARTICLE_WORDS and (t.tag_ == "RP" or t.pos_ == "ADV"):
-            particle_children.append(t)
-
-    # ---------- 4) generic short predicative complement near verb ----------
-    # Conservative: only 1 "small" complement, close to verb, short subtree.
-    # This helps catch "got married", "became angry", "turned pale", etc.
+    # 4) short predicative complement (got married / became angry)
     COMP_DEPS = {"acomp", "xcomp", "oprd", "attr"}
     comp = None
     for c in verb.children:
         if c.dep_ in COMP_DEPS:
             comp = c
             break
-
     if comp is not None:
-        # conservative filters to avoid grabbing long clauses
         close_enough = abs(comp.i - verb.i) <= 3
         subtree_len = len(list(comp.subtree))
         short_enough = subtree_len <= 2
-        good_pos = comp.pos_ in ("ADJ", "VERB")  # "married" can be VERB/VBN or ADJ
+        good_pos = comp.pos_ in ("ADJ", "VERB")
         if close_enough and short_enough and good_pos:
-            particle_children.append(comp)
+            parts.append(comp)
 
-    # ---------- finalize ----------
-    particle_children = _dedup(particle_children)
-    parts = sorted([verb] + particle_children, key=lambda t: t.i)
+    parts = _dedup(parts)
+    parts = sorted(parts, key=lambda t: t.i)
 
     action_text = " ".join(t.text for t in parts)
-
-    lemma_parts = [verb.lemma_] + [t.lemma_ for t in sorted(particle_children, key=lambda t: t.i)]
-    action = " ".join(lemma_parts)
+    action = " ".join(t.lemma_ for t in parts)
 
     return action_text, action
 
 
 # ---------------- candidates for T5 ----------------
-def build_action_candidates(doc, verb):
+def build_action_candidates(doc, verb, matcher, particle_words=PARTICLE_WORDS):
+    """
+    Build lemma-candidates for T5 to choose an action from.
+    Includes:
+      - verb alone
+      - verb + particle (prt/RP/advmod in particle_words)
+      - verb + prep (+ pobj lemma) when prep has pobj
+      - verb + prep (NO pobj) only if prep is very close to verb (e.g. "zoomed by")
+      - any MWE lemma spans that include this verb (matcher)
+
+    Returns list ordered longest-first (helps T5).
+    """
+
     cands = set()
     vlem = verb.lemma_.lower()
     cands.add(vlem)
 
+    # 1) particles attached to verb
     for c in verb.children:
         if c.dep_ == "prt" or c.tag_ == "RP":
             cands.add(f"{vlem} {c.lower_}")
-        elif c.dep_ == "advmod" and c.lower_ in PARTICLE_WORDS:
+        elif c.dep_ == "advmod" and c.lower_ in particle_words:
             cands.add(f"{vlem} {c.lower_}")
 
+    # 2) preps attached to verb
     for prep in (c for c in verb.children if c.dep_ == "prep"):
-        pobj = next((x for x in prep.children if x.dep_ == "pobj"), None)
-        if pobj is None:
-            continue
         plem = prep.lower_
+        pobj = next((x for x in prep.children if x.dep_ == "pobj"), None)
+
+        if pobj is None:
+            # conservative: allow only when prep is immediately/near right of verb
+            # ("zoomed by", "rushed by"). Avoids grabbing random PPs.
+            if 0 < (prep.i - verb.i) <= 2:
+                cands.add(f"{vlem} {plem}")
+            continue
+
         cands.add(f"{vlem} {plem}")
         cands.add(f"{vlem} {plem} {pobj.lemma_.lower()}")
 
+    # 3) MWE lemma spans that include this verb (precomputed matcher)
     matches = matcher(doc)
     for m_id, start, end in matches:
         if start <= verb.i < end:
             span = doc[start:end]
-            cands.add(" ".join(t.lemma_ for t in span))
+            cands.add(" ".join(t.lemma_.lower() for t in span))
 
+    # stable order: longest first, then alpha
     return sorted(cands, key=lambda s: (-len(s.split()), s))
 
 
@@ -488,7 +488,7 @@ def annotate_clause(clause: str) -> list[dict]:
                 obj_text = comp.text
 
         # -------- action first (T5 -> fallback rule-based) --------
-        candidates = build_action_candidates(doc, v)
+        candidates = build_action_candidates(doc, v, matcher)
         event_hint = f"Focus verb lemma: {v.lemma_.lower()}\n"
 
         picked_action, picked_text = t5_pick_action(clause, candidates, event_hint=event_hint)
@@ -570,7 +570,7 @@ def annotate_clause(clause: str) -> list[dict]:
 # ---------------- annotate full sentence: T5 split -> annotate each clause -> merge ----------------
 def annotate(sentence: str) -> dict:
 
-    print("...Annotating:", sentence)
+    print("-->>", sentence)
 
     clauses = t5_split_clauses(sentence)
     all_events = []
@@ -587,27 +587,27 @@ if __name__ == "__main__":
 
     output_file = "test_slotting_annotator.json"
 
-    # examples = [
-    #     "He was exposed to the cold for too long.",
-    #     "His crimes were exposed to the public.",
-    #     "Don't expect good work from him; he is lazy and careless.",
-    #     "He fell off the bicycle and hurt his leg.",
-    # ]
-
+    # 1920
     data = []
 
     with open(output_file, "r", encoding="utf-8") as f:
         dataset = json.load(f)
 
-    print("Examples in dataset:", len(dataset))
-
     # force annotate empty annotations
-    for item in dataset:
-        annotation = item.get("annotation", [])
+    # for item in dataset:
+    #     annotation = item.get("annotation", [])
 
-        if not annotation:
+    #     if not annotation:
+    #         result = annotate(item["example"])
+    #         item["annotation"] = result["annotation"]
+
+
+    for i, item in enumerate(dataset):
+        if i < 10:
             result = annotate(item["example"])
             item["annotation"] = result["annotation"]
+        else:
+            break
 
 
     if len(data) > 0:
@@ -621,3 +621,6 @@ if __name__ == "__main__":
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(dataset, f, ensure_ascii=False, indent=2)
+
+
+    print("Examples dataset.sz:", len(dataset))
