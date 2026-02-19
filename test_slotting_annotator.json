@@ -33100,5 +33100,53 @@
         "prep_object": "the clouds"
       }
     ]
+  },
+  {
+    "example": "Cars zoomed by in a constant stream.",
+    "annotation": [
+      {
+        "action_text": "zoomed by",
+        "action": "zoom by",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "Cars",
+        "object": null,
+        "prep": "in",
+        "prep_object": "a constant stream"
+      }
+    ]
+  },
+  {
+    "example": "Cars zoomed by in an endless stream.",
+    "annotation": [
+      {
+        "action_text": "zoomed by",
+        "action": "zoom by",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "Cars",
+        "object": null,
+        "prep": "in",
+        "prep_object": "an endless stream"
+      }
+    ]
+  },
+  {
+    "example": "Cars zoomed by in a steady flow.",
+    "annotation": [
+      {
+        "action_text": "zoomed by",
+        "action": "zoom by",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "Cars",
+        "object": null,
+        "prep": "in",
+        "prep_object": "a steady flow"
+      }
+    ]
   }
 ]
