@@ -183,8 +183,8 @@
     "example": "The company is going to close down its factory next year.",
     "annotation": [
       {
-        "action_text": "going",
-        "action": "go",
+        "action_text": "going down",
+        "action": "go down",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
