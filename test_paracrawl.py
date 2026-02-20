@@ -108,6 +108,8 @@ if __name__ == "__main__":
 
     load_translation_file("data/manythings.org/cmn.txt", texts)
 
+    #load_translation_file("data/manythings.org/lit.txt", texts)
+
     out_path = Path(file_name)
     with out_path.open("w", encoding="utf-8") as f:
         i = 1
