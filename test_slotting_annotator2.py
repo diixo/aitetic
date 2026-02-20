@@ -1,0 +1,627 @@
+import re
+import json
+import torch
+import spacy
+from spacy.matcher import Matcher
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from utils import load_mwe_phrases
+
+
+# ---------------- T5 ----------------
+MODEL_NAME = "google/flan-t5-base"
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+
+
+def _t5_generate(prompt: str, max_new_tokens: int = 120) -> str:
+    inputs = tokenizer(prompt, return_tensors="pt", truncation=True)
+    with torch.no_grad():
+        out = model.generate(**inputs, max_new_tokens=max_new_tokens, num_beams=4)
+    return tokenizer.decode(out[0], skip_special_tokens=True).strip()
+
+
+def t5_pick_action(sentence: str, candidates: list[str], event_hint: str = "") -> tuple[str | None, str | None]:
+    cand_str = " | ".join(candidates)
+
+    prompt = (
+        "Task: pick_action\n"
+        f"Sentence: {sentence}\n"
+        f"{event_hint}"
+        f"Candidates (lemma): {cand_str}\n"
+        "Rules:\n"
+        "1) Choose exactly one candidate that best matches the meaning.\n"
+        "2) action must be exactly one of the candidates.\n"
+        "3) action_text must be the exact words from the sentence.\n"
+        "Return format: action=<...>; action_text=<...>\n"
+    )
+
+    text = _t5_generate(prompt, max_new_tokens=40)
+
+    m1 = re.search(r"action\s*=\s*(.+?);", text)
+    m2 = re.search(r"action_text\s*=\s*(.+)$", text)
+    action = m1.group(1).strip() if m1 else None
+    action_text = m2.group(1).strip() if m2 else None
+
+    if action not in candidates:
+        return None, None
+    return action, action_text
+
+
+def t5_split_clauses(sentence: str) -> list[str]:
+    """
+    Split sentence into minimal clauses/events.
+    Returns a list of clauses as substrings.
+
+    Output format expected from T5: clause1 | clause2 | clause3
+    We validate: each clause must have non-trivial length.
+    Fallback: split on ';' if T5 output looks bad.
+    """
+    prompt = (
+        "Task: split_into_clauses\n"
+        f"Sentence: {sentence}\n"
+        "Split the given Sentence into minimal clauses/events.\n"
+        "Return ONLY clauses taken verbatim from the Sentence.\n"
+        "Use this format: clause1 | clause2 | clause3\n"
+        "Rules:\n"
+        "- Do NOT paraphrase.\n"
+        "- Do NOT invent text.\n"
+        "- Do NOT add explanations.\n"
+        "- Every returned clause must appear in the Sentence.\n"
+    )
+
+    raw = _t5_generate(prompt, max_new_tokens=80)
+
+    # parse by |
+    parts = [p.strip() for p in raw.split("|")]
+    parts = [p for p in parts if p]
+
+    def norm(s: str) -> str:
+        return " ".join(s.lower().split())
+
+    sent_n = norm(sentence)
+    valid = [p for p in parts if norm(p) in sent_n]
+
+    # if T5 output invalid -> fallback
+    if not valid:
+        # simple fallback: split by semicolon (and trim)
+        fb = [p.strip() for p in sentence.split(";") if p.strip()]
+        return fb if fb else [sentence.strip()]
+
+    return valid
+
+
+
+# ---------------- spaCy ----------------
+nlp = spacy.load("en_core_web_sm")
+matcher = Matcher(nlp.vocab)
+
+# вместо ручных matcher.add(...)
+added = load_mwe_phrases("mwe.txt", matcher)
+print("Loaded MWEs:", len(added))
+
+PARTICLE_WORDS = {
+    "apart",
+    "up",
+    "down",
+    "off",
+    "out",
+    "away",
+    "back",
+    "over",
+    "around",
+    "through",
+    "along",
+    "aside",
+    "together",
+}
+
+VERB_PREP_WHITELIST = {
+    "fall": {"off", "over", "down", "out"},
+}
+
+TENSE_MAP = {"pres": "present", "past": "past", "fut": "future"}
+
+
+# ---------------- helpers: spans ----------------
+def _extract_subject_span(doc, verb):
+    for c in verb.children:
+        if c.dep_ in ("nsubj", "nsubjpass"):
+            return doc[c.left_edge.i : c.right_edge.i + 1]
+    return None
+
+
+def _extract_object_span(doc, verb):
+    for c in verb.children:
+        if c.dep_ in ("dobj", "obj"):
+            # базовый span объекта
+            start = c.left_edge.i
+            end = c.right_edge.i
+
+            # если внутри span есть prep -> pobj, обрежем на первой prep
+            prep_in_subtree = [t for t in c.subtree if t.dep_ == "prep"]
+            if prep_in_subtree:
+                first_prep = min(prep_in_subtree, key=lambda t: t.i)
+                end = min(end, first_prep.i - 1)
+
+            if end < start:
+                end = c.i  # fallback хотя бы на голову
+
+            return doc[start : end + 1]
+    return None
+
+
+def _extract_copula_complement(doc, verb):
+    if verb.lemma_.lower() != "be":
+        return None
+    for dep in ("attr", "acomp"):
+        for c in verb.children:
+            if c.dep_ == dep:
+                return doc[c.left_edge.i : c.right_edge.i + 1]
+    return None
+
+
+# ---------------- tense/aspect ----------------
+def _tense_aspect(verb):
+    aux = [c for c in verb.children if c.dep_ in ("aux", "auxpass")]
+    aux_lemmas = {a.lemma_.lower() for a in aux}
+
+    # aspect
+    if verb.tag_ == "VBG" and ("be" in aux_lemmas):
+        aspect = "progressive"
+    elif "have" in aux_lemmas:
+        aspect = "perfect"
+    else:
+        aspect = "simple"
+
+    # tense
+    tense_raw = None
+    for a in aux:
+        t = a.morph.get("Tense")
+        if t:
+            tense_raw = t[0].lower()
+            break
+    if tense_raw is None:
+        t = verb.morph.get("Tense")
+        if t:
+            tense_raw = t[0].lower()
+        else:
+            tense_raw = "past" if verb.tag_ in ("VBD", "VBN") else "pres"
+
+    tense = TENSE_MAP.get(tense_raw, tense_raw)
+
+    if aspect == "progressive" and tense == "present":
+        time_relation = "ongoing"
+    elif tense == "past":
+        time_relation = "past"
+    else:
+        time_relation = "present" if tense == "present" else "unknown"
+
+    return tense, aspect, time_relation
+
+
+# ---------------- polarity / imperative ----------------
+def _polarity(verb):
+    for c in verb.children:
+        if c.dep_ == "neg":
+            return "negative"
+    for c in verb.children:
+        if c.dep_ in ("aux", "auxpass"):
+            for cc in c.children:
+                if cc.dep_ == "neg":
+                    return "negative"
+    return "positive"
+
+
+def _is_imperative(doc, verb):
+    if _extract_subject_span(doc, verb) is not None:
+        return False
+    if verb.tag_ != "VB":
+        return False
+    if verb.dep_ not in ("ROOT", "conj", "parataxis"):
+        return False
+    return True
+
+
+# ---------------- action: rule-based (MWE + particles + whitelisted prep) ----------------
+def _verb_phrase_with_particles(doc, verb, matcher):
+    """
+    action_text/action:
+      1) MWE (matcher) if span contains this verb
+      2) verb + particles (prt/RP/advmod in PARTICLE_WORDS)
+      3) verb + short prep WITHOUT pobj and very close (e.g. "zoomed by")
+      4) short predicative complement (acomp/xcomp/oprd/attr) close and small ("got married")
+    NOTE: prep WITH pobj is NOT part of action (goes to prep/prep_object).
+    """
+
+    def _dedup(tokens):
+        seen = set()
+        out = []
+        for t in tokens:
+            if t.i not in seen:
+                seen.add(t.i)
+                out.append(t)
+        return out
+
+    # 1) MWE that includes this verb
+    matches = matcher(doc)
+    if matches:
+        filtered = [(m_id, s, e) for (m_id, s, e) in matches if s <= verb.i < e]
+        if filtered:
+            _, start, end = max(filtered, key=lambda x: x[2] - x[1])
+            span = doc[start:end]
+            return span.text, " ".join(t.lemma_ for t in span)
+
+    parts = [verb]
+
+    # 2) prt/RP/advmod particles
+    for c in verb.children:
+        if c.dep_ == "prt":
+            parts.append(c)
+        elif c.tag_ == "RP":
+            parts.append(c)
+        elif c.dep_ == "advmod" and c.lower_ in PARTICLE_WORDS:
+            parts.append(c)
+
+    # 3) prep WITHOUT pobj, very close -> treat as phrasal ("zoomed by")
+    for c in verb.children:
+        if c.dep_ != "prep":
+            continue
+        pobj = next((x for x in c.children if x.dep_ == "pobj"), None)
+        if pobj is not None:
+            continue  # WITH pobj -> NOT part of action
+        if 0 < (c.i - verb.i) <= 2:
+            parts.append(c)
+
+    # 4) short predicative complement (got married / became angry)
+    COMP_DEPS = {"acomp", "xcomp", "oprd", "attr"}
+    comp = None
+    for c in verb.children:
+        if c.dep_ in COMP_DEPS:
+            comp = c
+            break
+    if comp is not None:
+        close_enough = abs(comp.i - verb.i) <= 3
+        subtree_len = len(list(comp.subtree))
+        short_enough = subtree_len <= 2
+        good_pos = comp.pos_ in ("ADJ", "VERB")
+        if close_enough and short_enough and good_pos:
+            parts.append(comp)
+
+    parts = _dedup(parts)
+    parts = sorted(parts, key=lambda t: t.i)
+
+    action_text = " ".join(t.text for t in parts)
+    action = " ".join(t.lemma_ for t in parts)
+
+    return action_text, action
+
+
+# ---------------- candidates for T5 ----------------
+def build_action_candidates(doc, verb, matcher, particle_words=PARTICLE_WORDS):
+    """
+    Build lemma-candidates for T5 to choose an action from.
+    Includes:
+      - verb alone
+      - verb + particle (prt/RP/advmod in particle_words)
+      - verb + prep (+ pobj lemma) when prep has pobj
+      - verb + prep (NO pobj) only if prep is very close to verb (e.g. "zoomed by")
+      - any MWE lemma spans that include this verb (matcher)
+
+    Returns list ordered longest-first (helps T5).
+    """
+
+    cands = set()
+    vlem = verb.lemma_.lower()
+    cands.add(vlem)
+
+    # 1) particles attached to verb
+    for c in verb.children:
+        if c.dep_ == "prt" or c.tag_ == "RP":
+            cands.add(f"{vlem} {c.lower_}")
+        elif c.dep_ == "advmod" and c.lower_ in particle_words:
+            cands.add(f"{vlem} {c.lower_}")
+
+    # 2) preps attached to verb
+    for prep in (c for c in verb.children if c.dep_ == "prep"):
+        plem = prep.lower_
+        pobj = next((x for x in prep.children if x.dep_ == "pobj"), None)
+
+        if pobj is None:
+            # conservative: allow only when prep is immediately/near right of verb
+            # ("zoomed by", "rushed by"). Avoids grabbing random PPs.
+            if 0 < (prep.i - verb.i) <= 2:
+                cands.add(f"{vlem} {plem}")
+            continue
+
+        cands.add(f"{vlem} {plem}")
+        cands.add(f"{vlem} {plem} {pobj.lemma_.lower()}")
+
+    # 3) MWE lemma spans that include this verb (precomputed matcher)
+    matches = matcher(doc)
+    for m_id, start, end in matches:
+        if start <= verb.i < end:
+            span = doc[start:end]
+            cands.add(" ".join(t.lemma_.lower() for t in span))
+
+    # stable order: longest first, then alpha
+    return sorted(cands, key=lambda s: (-len(s.split()), s))
+
+
+# ---------------- collect event verbs: ROOT + conj + parataxis ----------------
+def _collect_event_verbs(doc):
+    root = next((t for t in doc if t.dep_ == "ROOT"), None)
+    if root is None:
+        return []
+
+    verbs = []
+    queue = [root]
+    seen = set()
+
+    def add_if_verb(t):
+        if t is None:
+            return
+        if t.pos_ in ("VERB", "AUX") and t.i not in seen:
+            seen.add(t.i)
+            verbs.append(t)
+            queue.append(t)
+
+    add_if_verb(root)
+
+    while queue:
+        v = queue.pop(0)
+        for c in v.children:
+            if c.dep_ == "conj":
+                add_if_verb(c)
+            if c.dep_ == "parataxis":
+                add_if_verb(c)
+
+    verbs.sort(key=lambda t: t.i)
+    return verbs
+
+
+def _action_token_span(doc, action_text: str):
+    """
+    Return (start_i, end_i) token indices for action_text inside doc, or None.
+    Matches exact token.text sequence.
+    """
+    if not action_text:
+        return None
+    target = [t for t in action_text.split() if t]
+    if not target:
+        return None
+
+    toks = [t.text for t in doc]
+    n = len(target)
+    for i in range(0, len(toks) - n + 1):
+        if toks[i:i+n] == target:
+            return (i, i+n-1)
+    return None
+
+
+def _extract_prep_object_excluding_action(doc, verb, action_span, preferred_preps=None):
+    preferred_preps = set(preferred_preps or [])
+    candidates = []
+
+    def add_prep_candidates(head_token):
+        for c in head_token.children:
+            if c.dep_ != "prep":
+                continue
+            pobj = next((x for x in c.children if x.dep_ == "pobj"), None)
+            if pobj is None:
+                continue
+
+            # skip internal prep+object if both are inside action span
+            if action_span is not None:
+                a0, a1 = action_span
+                if (a0 <= c.i <= a1) and (a0 <= pobj.i <= a1):
+                    continue
+
+            span = doc[pobj.left_edge.i : pobj.right_edge.i + 1]
+            score = 1 + (10 if c.lower_ in preferred_preps else 0)
+            candidates.append((score, c.lower_, span.text))
+
+    # 1) preps attached to the verb
+    add_prep_candidates(verb)
+
+    # 2) also preps attached inside the action span (important for MWEs like "in love with Mary")
+    if action_span is not None:
+        a0, a1 = action_span
+        for t in doc[a0 : a1 + 1]:
+            add_prep_candidates(t)
+
+    if not candidates:
+        return None, None
+
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    _, prep, pobj_text = candidates[0]
+    return prep, pobj_text
+
+
+# ---------------- annotate one clause ----------------
+def annotate_clause(clause: str) -> list[dict]:
+    """
+    Annotate one clause: extract events (verbs), pick action (T5 -> fallback),
+    then extract arguments. Important ordering:
+      1) action_text/action
+      2) action_span in doc
+      3) prep/prep_object excluding internal preps (unless they have pobj)
+      4) subject/object/tense/aspect/polarity/mood
+    """
+
+    doc = nlp(clause)
+    event_verbs = _collect_event_verbs(doc)
+    if not event_verbs:
+        return []
+
+    root = event_verbs[0]
+    root_subj_span = _extract_subject_span(doc, root)
+    root_subject = root_subj_span.text if root_subj_span is not None else None
+
+    events = []
+
+    for v in event_verbs:
+        # -------- subject (needed early for imperative heuristic) --------
+        subj_span = _extract_subject_span(doc, v)
+        subject = subj_span.text if subj_span is not None else root_subject
+
+        mood = None
+        speech_act = None
+        polarity = _polarity(v)
+
+        is_conj = (v.dep_ == "conj")
+        has_fallback_subject = (subj_span is None and root_subject is not None)
+
+        if _is_imperative(doc, v) and not (is_conj and has_fallback_subject):
+            mood = "imperative"
+            speech_act = "directive"
+            if subject is None:
+                subject = "you"
+
+        # -------- object (may be used for NP-attached PP fallback) --------
+        obj_span = _extract_object_span(doc, v)
+        obj_text = obj_span.text if obj_span is not None else None
+
+        # copula complement as object (be + attr/acomp)
+        if obj_text is None and v.lemma_.lower() == "be":
+            comp = _extract_copula_complement(doc, v)
+            if comp is not None:
+                obj_text = comp.text
+
+        # -------- action first (T5 -> fallback rule-based) --------
+        candidates = build_action_candidates(doc, v, matcher)
+        event_hint = f"Focus verb lemma: {v.lemma_.lower()}\n"
+
+        picked_action, picked_text = t5_pick_action(clause, candidates, event_hint=event_hint)
+
+        if picked_action and picked_text and picked_text in clause:
+            action = picked_action
+            action_text = picked_text
+        else:
+            action_text, action = _verb_phrase_with_particles(doc, v, matcher)
+
+        # -------- action span (token indices) --------
+        action_span = _action_token_span(doc, action_text)
+
+        # print("ACTION_TEXT:", action_text)
+        # print("ACTION_SPAN:", action_span)
+
+        # -------- prep/prep_object (exclude internal preps) --------
+        prep, prep_object = _extract_prep_object_excluding_action(
+            doc,
+            v,
+            action_span,
+            preferred_preps={"with", "to", "into", "for", "from", "of", "off"},
+        )
+
+        # -------- fallback: NP-attached PP on object (e.g. "good work from him") --------
+        if prep is None and obj_span is not None:
+            obj_head = obj_span.root
+            for p in obj_head.children:
+                if p.dep_ == "prep":
+                    pobj = next((x for x in p.children if x.dep_ == "pobj"), None)
+                    if pobj is not None:
+                        prep = p.lower_
+                        prep_object = doc[pobj.left_edge.i : pobj.right_edge.i + 1].text
+                        break
+
+        # -------- tense/aspect/time --------
+        tense, aspect, time_relation = _tense_aspect(v)
+
+        # conj tense inheritance (helps "hurt" after "fell")
+        if v.dep_ == "conj":
+            root_tense, root_aspect, root_time = _tense_aspect(root)
+            # если у v получилось "present", а root "past" — часто это как раз case "hurt"
+            if tense == "present" and root_tense == "past":
+                tense, aspect, time_relation = root_tense, root_aspect, root_time
+
+        # imperative override
+        if mood == "imperative":
+            tense = "present"
+            aspect = "simple"
+            time_relation = "present"
+
+        # -------- build event --------
+        ev = {
+            "action_text": action_text.lower(),
+            "action": action,
+            "tense": tense,
+            "tense_aspect": aspect,
+            "time_relation": time_relation,
+            "subject": subject,
+            "object": obj_text,
+            "prep": prep,
+            "prep_object": prep_object,
+            # optional debug:
+            "clause": clause,
+        }
+
+        if mood is not None:
+            ev["mood"] = mood
+        if speech_act is not None:
+            ev["speech_act"] = speech_act
+        if polarity != "positive":
+            ev["polarity"] = polarity
+
+        events.append(ev)
+
+    return events
+
+
+# ---------------- annotate full sentence: T5 split -> annotate each clause -> merge ----------------
+def annotate(sentence: str) -> dict:
+
+    print("-->>", sentence)
+
+    clauses = t5_split_clauses(sentence)
+    all_events = []
+    for cl in clauses:
+        all_events.extend(annotate_clause(cl))
+    # remove debug field if you don't want it in dataset:
+    for ev in all_events:
+        ev.pop("clause", None)
+    return {"example": sentence, "annotation": all_events}
+
+
+# ---------------- demo ----------------
+if __name__ == "__main__":
+
+    output_file = "test_slotting_annotator.json"
+
+    # 1920
+    data = []
+
+    with open(output_file, "r", encoding="utf-8") as f:
+        dataset = json.load(f)
+
+    # force annotate empty annotations
+    # for item in dataset:
+    #     annotation = item.get("annotation", [])
+
+    #     if not annotation:
+    #         result = annotate(item["example"])
+    #         item["annotation"] = result["annotation"]
+
+    count = 0
+    for i, item in enumerate(dataset):
+
+        if count > 0 and i >= count:
+            break
+
+        result = annotate(item["example"])
+        item["annotation"] = result["annotation"]
+
+
+    if len(data) > 0:
+        #data = [s["example"] for s in dataset]
+
+        print("Unique examples in dataset:", len(set(data)))
+
+
+        dataset = [annotate(s) for s in data]
+
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(dataset, f, ensure_ascii=False, indent=2)
+
+
+    print("Examples dataset.sz:", len(dataset))
