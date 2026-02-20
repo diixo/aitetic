@@ -11,11 +11,6 @@ def str_tokenize_words(s: str):
     return []
 
 
-count = 0
-
-words = set()
-texts = dict()
-
 
 def load_translation_file(file_path: str, texts: dict, count: int = 0):
 
@@ -41,8 +36,7 @@ def load_translation_file(file_path: str, texts: dict, count: int = 0):
             if i % 1000 == 0:
                 print(f"...on: {i} lines")
 
-            ws = str_tokenize_words(eng.lower())
-            words.update(ws)
+            ws = str_tokenize_words(eng)
 
             if eng not in texts:
                 texts[eng] = len(ws)
@@ -50,7 +44,25 @@ def load_translation_file(file_path: str, texts: dict, count: int = 0):
 
 if __name__ == "__main__":
 
+    file_name = "data/eng-base.jsonl"
+
     texts = dict()
+
+    with open(file_name, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            obj = json.loads(line)
+
+            example = obj.get("example")
+            ws = obj.get("words")
+
+            if int(ws) < 1:
+                ws = len(str_tokenize_words(example))
+
+            texts[example] = ws
+
 
     load_translation_file("data/manythings.org/rus.txt", texts)
 
@@ -92,7 +104,11 @@ if __name__ == "__main__":
 
     load_translation_file("data/manythings.org/ber.txt", texts)
 
-    out_path = Path("data/eng-base.jsonl")
+    load_translation_file("data/manythings.org/srp.txt", texts)
+
+    load_translation_file("data/manythings.org/cmn.txt", texts)
+
+    out_path = Path(file_name)
     with out_path.open("w", encoding="utf-8") as f:
         i = 1
         for k, v in texts.items():
@@ -101,4 +117,4 @@ if __name__ == "__main__":
             i += 1
 
     print(40*"#")
-    print("unique words:", len(texts.items()))
+    print("unique words:", len(texts.items())) # 742080
