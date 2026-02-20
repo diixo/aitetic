@@ -3,23 +3,22 @@
 Action as intention ("tense": "present"):
 ```json
 {
-    "example": "The company is going to close down its factory next year.",
-    "annotation":
-    [
-        {
-            "action_text": "close down",
-            "action": "close down",
-            "tense": "present",
-            "tense_aspect": "simple",
-            "time_relation": "future",
-            "modal_txt": "is going to",
-            "subject": "The company",
-            "object": "its factory",
-            "prep": null,
-            "prep_object": null,
-            "time_expr": "next year"
-        }
-    ]
+  "example": "The company is going to close down its factory next year.",
+  "annotation": [
+    {
+      "action_text": "close down",
+      "action": "close down",
+      "tense": "present",
+      "tense_aspect": "simple",
+      "time_relation": "future",
+      "modal_txt": "is going to",
+      "subject": "The company",
+      "object": "its factory",
+      "prep": null,
+      "prep_object": null,
+      "time_expr": "next year"
+    }
+  ]
 }
 ```
 
