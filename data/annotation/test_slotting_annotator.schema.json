@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SlottingAnnotationDataset",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "example",
+      "annotation"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "example": {
+        "type": "string"
+      },
+      "annotation": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "action_text",
+            "action",
+            "tense",
+            "tense_aspect",
+            "time_relation",
+            "modal_txt",
+            "subject",
+            "object",
+            "prep",
+            "prep_object",
+            "mood",
+            "speech_act",
+            "polarity"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "action_text": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "action": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "tense": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "future",
+                "past",
+                "present",
+                "unknown",
+                null
+              ]
+            },
+            "tense_aspect": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "perfect",
+                "perfect_progressive",
+                "progressive",
+                "simple",
+                "unknown",
+                null
+              ]
+            },
+            "time_relation": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "future",
+                "ongoing",
+                "past",
+                "present",
+                "unknown",
+                null
+              ]
+            },
+            "modal_txt": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "subject": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "object": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "prep": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "prep_object": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mood": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "imperative",
+                "indicative",
+                "interrogative",
+                "subjunctive",
+                "unknown",
+                null
+              ]
+            },
+            "speech_act": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "assertive",
+                "commissive",
+                "directive",
+                "expressive",
+                "question",
+                "unknown",
+                null
+              ]
+            },
+            "polarity": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "negative",
+                "positive",
+                "unknown",
+                null
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
