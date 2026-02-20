@@ -602,12 +602,13 @@ if __name__ == "__main__":
     #         item["annotation"] = result["annotation"]
 
 
+    count = 0
     for i, item in enumerate(dataset):
-        if i < 10:
-            result = annotate(item["example"])
-            item["annotation"] = result["annotation"]
-        else:
+
+        if count > 0 and i >= count:
             break
+        result = annotate(item["example"])
+        item["annotation"] = result["annotation"]
 
 
     if len(data) > 0:

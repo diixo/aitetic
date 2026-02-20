@@ -183,8 +183,8 @@
     "example": "The company is going to close down its factory next year.",
     "annotation": [
       {
-        "action_text": "going down",
-        "action": "go down",
+        "action_text": "going",
+        "action": "go",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -274,8 +274,8 @@
     "example": "Your purchases add up to $205.32.",
     "annotation": [
       {
-        "action_text": "add up",
-        "action": "add up",
+        "action_text": "add",
+        "action": "add",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -290,8 +290,8 @@
     "example": "You'll have to back up your car so that I can get out.",
     "annotation": [
       {
-        "action_text": "have up",
-        "action": "have up",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -338,8 +338,8 @@
     "example": "We have to blow 50 balloons up for the party.",
     "annotation": [
       {
-        "action_text": "have up",
-        "action": "have up",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -509,15 +509,15 @@
     "example": "The prisoners broke out of jail when the guards weren't looking.",
     "annotation": [
       {
-        "action_text": "broke",
-        "action": "break",
+        "action_text": "broke out",
+        "action": "break out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "The prisoners",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "jail"
       }
     ]
   },
@@ -573,15 +573,15 @@
     "example": "My mother walks out of the room when my father brings up sports.",
     "annotation": [
       {
-        "action_text": "walks",
-        "action": "walk",
+        "action_text": "walks out",
+        "action": "walk out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "My mother",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the room"
       }
     ]
   },
@@ -720,7 +720,7 @@
     "example": "Give me your phone number and I will call you up when we are in town.",
     "annotation": [
       {
-        "action_text": "Give",
+        "action_text": "give",
         "action": "give",
         "tense": "present",
         "tense_aspect": "simple",
@@ -846,7 +846,7 @@
     "example": "Check out the crazy hair on that guy!",
     "annotation": [
       {
-        "action_text": "Check out",
+        "action_text": "check out",
         "action": "check out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -1105,8 +1105,8 @@
     "example": "My doctor wants me to cut back on sweets and fatty foods.",
     "annotation": [
       {
-        "action_text": "wants back",
-        "action": "want back",
+        "action_text": "wants",
+        "action": "want",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1169,8 +1169,8 @@
     "example": "The air conditioner cuts in when the temperature gets to 22°C.",
     "annotation": [
       {
-        "action_text": "cuts",
-        "action": "cut",
+        "action_text": "cuts in",
+        "action": "cut in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1281,8 +1281,8 @@
     "example": "It's time to do away with all of these old tax records.",
     "annotation": [
       {
-        "action_text": "'s away",
-        "action": "be away",
+        "action_text": "'s",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1297,7 +1297,7 @@
     "example": "Do your coat up before you go outside. It's snowing!",
     "annotation": [
       {
-        "action_text": "Do up",
+        "action_text": "do up",
         "action": "do up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -1347,8 +1347,8 @@
     "example": "I might drop in/by/over for tea sometime this week.",
     "annotation": [
       {
-        "action_text": "drop",
-        "action": "drop",
+        "action_text": "drop in",
+        "action": "drop in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1363,8 +1363,8 @@
     "example": "I have to drop my sister off at work before I come over.",
     "annotation": [
       {
-        "action_text": "have off",
-        "action": "have off",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1379,15 +1379,15 @@
     "example": "I dropped out of Science because it was too difficult.",
     "annotation": [
       {
-        "action_text": "dropped",
-        "action": "drop",
+        "action_text": "dropped out",
+        "action": "drop out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "I",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "Science"
       }
     ]
   },
@@ -1395,8 +1395,8 @@
     "example": "I don't feel like cooking tonight. Let's eat out.",
     "annotation": [
       {
-        "action_text": "feel",
-        "action": "feel",
+        "action_text": "feel like",
+        "action": "feel like",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1460,15 +1460,15 @@
     "example": "The money must have fallen out of my pocket.",
     "annotation": [
       {
-        "action_text": "fallen",
-        "action": "fall",
+        "action_text": "fallen out",
+        "action": "fall out",
         "tense": "past",
         "tense_aspect": "perfect",
         "time_relation": "past",
         "subject": "The money",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "my pocket"
       }
     ]
   },
@@ -1476,8 +1476,8 @@
     "example": "His hair started to fall out when he was only 35.",
     "annotation": [
       {
-        "action_text": "started out",
-        "action": "start out",
+        "action_text": "started",
+        "action": "start",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -1492,8 +1492,8 @@
     "example": "I need to figure out how to fit the piano and the bookshelf in this room.",
     "annotation": [
       {
-        "action_text": "need out",
-        "action": "need out",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1682,8 +1682,8 @@
     "example": "I have to get down to my homework before I can go out with my friends.",
     "annotation": [
       {
-        "action_text": "have down",
-        "action": "have down",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1757,7 +1757,7 @@
     "example": "Get off the table!",
     "annotation": [
       {
-        "action_text": "Get",
+        "action_text": "get",
         "action": "get",
         "tense": "present",
         "tense_aspect": "simple",
@@ -1856,8 +1856,8 @@
     "example": "Let's get together for lunch this weekend.",
     "annotation": [
       {
-        "action_text": "Let together",
-        "action": "let together",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -1998,8 +1998,8 @@
     "example": "Liz finally got her Science notes back from my room-mate.",
     "annotation": [
       {
-        "action_text": "got back",
-        "action": "get back",
+        "action_text": "got",
+        "action": "get",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -2057,8 +2057,8 @@
     "example": "We're going to freeze out here if you don't let us get on the bus.",
     "annotation": [
       {
-        "action_text": "going out",
-        "action": "go out",
+        "action_text": "going",
+        "action": "go",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -2133,8 +2133,8 @@
     "example": "Let's get together for a BBQ this weekend.",
     "annotation": [
       {
-        "action_text": "Let together",
-        "action": "let together",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -2258,8 +2258,8 @@
     "example": "I have to give these skates back to Franz before his hockey game.",
     "annotation": [
       {
-        "action_text": "have back",
-        "action": "have back",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -2440,8 +2440,8 @@
     "example": "I have to go back home and get my lunch.",
     "annotation": [
       {
-        "action_text": "have back",
-        "action": "have back",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -2694,7 +2694,7 @@
     "example": "Hang in there. I'm sure you'll find a job very soon.",
     "annotation": [
       {
-        "action_text": "Hang",
+        "action_text": "hang",
         "action": "hang",
         "tense": "present",
         "tense_aspect": "simple",
@@ -2712,7 +2712,7 @@
     "example": "Hang on while I grab my coat and shoes!",
     "annotation": [
       {
-        "action_text": "Hang on",
+        "action_text": "hang on",
         "action": "hang on",
         "tense": "present",
         "tense_aspect": "simple",
@@ -2730,15 +2730,15 @@
     "example": "Instead of going to the party we are just going to hang out at my place.",
     "annotation": [
       {
-        "action_text": "going out",
-        "action": "go out",
+        "action_text": "going",
+        "action": "go",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
         "subject": "we",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "to",
+        "prep_object": "the party"
       }
     ]
   },
@@ -2746,8 +2746,8 @@
     "example": "He didn't say goodbye before he hung up.",
     "annotation": [
       {
-        "action_text": "say up",
-        "action": "say up",
+        "action_text": "say",
+        "action": "say",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -2763,8 +2763,8 @@
     "example": "I had to hold my dog back because there was a cat in the park.",
     "annotation": [
       {
-        "action_text": "had back",
-        "action": "have back",
+        "action_text": "had",
+        "action": "have",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -2813,7 +2813,7 @@
     "example": "Hold onto your hat because it's very windy outside.",
     "annotation": [
       {
-        "action_text": "Hold",
+        "action_text": "hold",
         "action": "hold",
         "tense": "present",
         "tense_aspect": "simple",
@@ -2847,7 +2847,7 @@
     "example": "Keep on stirring until the liquid comes to a boil.",
     "annotation": [
       {
-        "action_text": "Keep on stirring",
+        "action_text": "keep on stirring",
         "action": "keep on stir",
         "tense": "present",
         "tense_aspect": "simple",
@@ -2881,7 +2881,7 @@
     "example": "Try to keep the wet dog out of the living room.",
     "annotation": [
       {
-        "action_text": "Try",
+        "action_text": "try",
         "action": "try",
         "tense": "present",
         "tense_aspect": "simple",
@@ -3043,7 +3043,7 @@
     "example": "Look out! That car's going to hit you!",
     "annotation": [
       {
-        "action_text": "Look out",
+        "action_text": "look out",
         "action": "look out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -3061,8 +3061,8 @@
     "example": "Don't forget to look out for snakes on the hiking trail.",
     "annotation": [
       {
-        "action_text": "forget out",
-        "action": "forget out",
+        "action_text": "forget",
+        "action": "forget",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3287,8 +3287,8 @@
     "example": "That bully will pay for being mean to my little brother.",
     "annotation": [
       {
-        "action_text": "pay",
-        "action": "pay",
+        "action_text": "pay for",
+        "action": "pay for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3399,8 +3399,8 @@
     "example": "I have to put the crib together before the baby arrives.",
     "annotation": [
       {
-        "action_text": "have together",
-        "action": "have together",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3415,8 +3415,8 @@
     "example": "I don't think I can put up with three small children in the car.",
     "annotation": [
       {
-        "action_text": "think up",
-        "action": "think up",
+        "action_text": "think",
+        "action": "think",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3483,8 +3483,8 @@
     "example": "Let's run over/through these lines one more time before the show.",
     "annotation": [
       {
-        "action_text": "Let over",
-        "action": "let over",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3528,15 +3528,15 @@
     "example": "We ran out of shampoo so I had to wash my hair with soap.",
     "annotation": [
       {
-        "action_text": "ran",
-        "action": "run",
+        "action_text": "ran out",
+        "action": "run out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "We",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "shampoo"
       }
     ]
   },
@@ -3560,8 +3560,8 @@
     "example": "Our boss set a meeting up with the president of the company.",
     "annotation": [
       {
-        "action_text": "set up",
-        "action": "set up",
+        "action_text": "set",
+        "action": "set",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -3592,8 +3592,8 @@
     "example": "I want to shop around a little before I decide on these boots.",
     "annotation": [
       {
-        "action_text": "want around",
-        "action": "want around",
+        "action_text": "want",
+        "action": "want",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3640,8 +3640,8 @@
     "example": "We need to sort the bills out before the first of the month.",
     "annotation": [
       {
-        "action_text": "need out",
-        "action": "need out",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -3783,7 +3783,7 @@
     "example": "Take off your socks and shoes and come in the lake!",
     "annotation": [
       {
-        "action_text": "Take off",
+        "action_text": "take off",
         "action": "take off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -4079,8 +4079,8 @@
     "example": "We have to wake up early for work on Monday.",
     "annotation": [
       {
-        "action_text": "have up",
-        "action": "have up",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -4111,8 +4111,8 @@
     "example": "I always warm up by doing sit-ups before I go for a run.",
     "annotation": [
       {
-        "action_text": "warm up",
-        "action": "warm up",
+        "action_text": "warm up by",
+        "action": "warm up by",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -4175,8 +4175,8 @@
     "example": "We have to work out the total cost before we buy the house.",
     "annotation": [
       {
-        "action_text": "have out",
-        "action": "have out",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -4191,8 +4191,8 @@
     "example": "We need to work out a way to get more customers.",
     "annotation": [
       {
-        "action_text": "need out",
-        "action": "need out",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -4288,15 +4288,15 @@
     "example": "We are in for a lot of rain this weekend.",
     "annotation": [
       {
-        "action_text": "are",
-        "action": "be",
+        "action_text": "are in",
+        "action": "be in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "We",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "for",
+        "prep_object": "a lot of rain"
       }
     ]
   },
@@ -4304,15 +4304,15 @@
     "example": "She is in with the boss.",
     "annotation": [
       {
-        "action_text": "is",
-        "action": "be",
+        "action_text": "is in",
+        "action": "be in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "She",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "with",
+        "prep_object": "the boss"
       }
     ]
   },
@@ -4502,8 +4502,8 @@
     "example": "He was accused of stealing money.",
     "annotation": [
       {
-        "action_text": "accused",
-        "action": "accuse",
+        "action_text": "accused of",
+        "action": "accuse of",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -4518,8 +4518,8 @@
     "example": "She accused him of lying.",
     "annotation": [
       {
-        "action_text": "accused",
-        "action": "accuse",
+        "action_text": "accused of",
+        "action": "accuse of",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -4550,8 +4550,8 @@
     "example": "Let's act out the second episode of the play.",
     "annotation": [
       {
-        "action_text": "Let out",
-        "action": "let out",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -4649,7 +4649,7 @@
     "example": "Add two to three. How much do you get?",
     "annotation": [
       {
-        "action_text": "Add",
+        "action_text": "add",
         "action": "add",
         "tense": "present",
         "tense_aspect": "simple",
@@ -4746,8 +4746,8 @@
     "example": "They agreed on selling the house.",
     "annotation": [
       {
-        "action_text": "agreed",
-        "action": "agree",
+        "action_text": "agreed on",
+        "action": "agree on",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -4975,7 +4975,7 @@
     "example": "Apply to the boss and ask for a pay raise.",
     "annotation": [
       {
-        "action_text": "Apply",
+        "action_text": "apply",
         "action": "apply",
         "tense": "present",
         "tense_aspect": "simple",
@@ -5022,7 +5022,7 @@
     "example": "Apply this ointment to the swollen knee three times a day.",
     "annotation": [
       {
-        "action_text": "Apply",
+        "action_text": "apply",
         "action": "apply",
         "tense": "present",
         "tense_aspect": "simple",
@@ -5106,7 +5106,7 @@
     "example": "Stop arguing with me!",
     "annotation": [
       {
-        "action_text": "Stop",
+        "action_text": "stop",
         "action": "stop",
         "tense": "present",
         "tense_aspect": "simple",
@@ -5369,8 +5369,8 @@
     "example": "The dog barked, and we backed off in a hurry.",
     "annotation": [
       {
-        "action_text": "barked off",
-        "action": "bark off",
+        "action_text": "barked",
+        "action": "bark",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -5397,7 +5397,7 @@
     "annotation": [
       {
         "action_text": "off need",
-        "action": "need off",
+        "action": "off need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -5413,7 +5413,7 @@
     "annotation": [
       {
         "action_text": "off 's",
-        "action": "be off",
+        "action": "off be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -5444,8 +5444,8 @@
     "example": "It is too late to back out now.",
     "annotation": [
       {
-        "action_text": "is out",
-        "action": "be out",
+        "action_text": "is",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -5476,15 +5476,15 @@
     "example": "The car backed out of the driveway.",
     "annotation": [
       {
-        "action_text": "backed",
-        "action": "back",
+        "action_text": "backed out",
+        "action": "back out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "The car",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the driveway"
       }
     ]
   },
@@ -5636,8 +5636,8 @@
     "example": "The truth is out there, but above us all.",
     "annotation": [
       {
-        "action_text": "is out",
-        "action": "be out",
+        "action_text": "is",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -5797,7 +5797,7 @@
     "example": "Let's find her. She is around somewhere.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -5815,7 +5815,7 @@
     "example": "Is his old Uncle Peter still around?",
     "annotation": [
       {
-        "action_text": "Is around",
+        "action_text": "is around",
         "action": "be around",
         "tense": "present",
         "tense_aspect": "simple",
@@ -5960,8 +5960,8 @@
     "example": "David is not in.",
     "annotation": [
       {
-        "action_text": "is",
-        "action": "be",
+        "action_text": "is in",
+        "action": "be in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -5993,15 +5993,15 @@
     "example": "If you come to work late every day, you are in for trouble.",
     "annotation": [
       {
-        "action_text": "are",
-        "action": "be",
+        "action_text": "are in",
+        "action": "be in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "you",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "for",
+        "prep_object": "trouble"
       }
     ]
   },
@@ -6100,7 +6100,7 @@
     "example": "Let's watch TV. What is on?",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -6150,15 +6150,15 @@
     "example": "We are out of time.",
     "annotation": [
       {
-        "action_text": "are",
-        "action": "be",
+        "action_text": "are out",
+        "action": "be out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "We",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "time"
       }
     ]
   },
@@ -6166,15 +6166,15 @@
     "example": "We are out of sugar.",
     "annotation": [
       {
-        "action_text": "are",
-        "action": "be",
+        "action_text": "are out",
+        "action": "be out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "We",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "sugar"
       }
     ]
   },
@@ -6182,15 +6182,15 @@
     "example": "He is out of town now. He'll be back in three days.",
     "annotation": [
       {
-        "action_text": "is",
-        "action": "be",
+        "action_text": "is out",
+        "action": "be out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "He",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "town"
       }
     ]
   },
@@ -6263,15 +6263,15 @@
     "example": "I'm through with this work.",
     "annotation": [
       {
-        "action_text": "'m",
-        "action": "be",
+        "action_text": "'m through",
+        "action": "be through",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "I",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "with",
+        "prep_object": "this work"
       }
     ]
   },
@@ -6279,15 +6279,15 @@
     "example": "I'm through with this book.",
     "annotation": [
       {
-        "action_text": "'m",
-        "action": "be",
+        "action_text": "'m through",
+        "action": "be through",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "I",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "with",
+        "prep_object": "this book"
       }
     ]
   },
@@ -6295,15 +6295,15 @@
     "example": "I am through with the check-in form.",
     "annotation": [
       {
-        "action_text": "am",
-        "action": "be",
+        "action_text": "am through",
+        "action": "be through",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "I",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "with",
+        "prep_object": "the check-in form"
       }
     ]
   },
@@ -6424,15 +6424,15 @@
     "example": "It's up to you to close the office every day at six.",
     "annotation": [
       {
-        "action_text": "'s",
-        "action": "be",
+        "action_text": "'s up",
+        "action": "be up",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "It",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "to",
+        "prep_object": "you"
       }
     ]
   },
@@ -6456,8 +6456,8 @@
     "example": "Your report is not up to your usual standard.",
     "annotation": [
       {
-        "action_text": "is",
-        "action": "be",
+        "action_text": "is up",
+        "action": "be up",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -6538,7 +6538,7 @@
     "example": "Are you still with me?",
     "annotation": [
       {
-        "action_text": "Are",
+        "action_text": "are",
         "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
@@ -6650,7 +6650,7 @@
     "example": "Beat the eggs into the mixture.",
     "annotation": [
       {
-        "action_text": "Beat",
+        "action_text": "beat",
         "action": "beat",
         "tense": "present",
         "tense_aspect": "simple",
@@ -6728,7 +6728,7 @@
     "example": "Beat up the eggs.",
     "annotation": [
       {
-        "action_text": "Beat up",
+        "action_text": "beat up",
         "action": "beat up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -6821,7 +6821,7 @@
     "example": "Let me begin our party with a drink to Tom's health.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -6839,7 +6839,7 @@
     "example": "Begin with Chapter 2.",
     "annotation": [
       {
-        "action_text": "Begin",
+        "action_text": "begin",
         "action": "begin",
         "tense": "present",
         "tense_aspect": "simple",
@@ -6921,8 +6921,8 @@
     "example": "She bent down to pick up a penny.",
     "annotation": [
       {
-        "action_text": "bent down up",
-        "action": "bend down up",
+        "action_text": "bent down",
+        "action": "bend down",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -7082,7 +7082,7 @@
     "example": "Beware of the dog!",
     "annotation": [
       {
-        "action_text": "Beware",
+        "action_text": "beware",
         "action": "beware",
         "tense": "present",
         "tense_aspect": "simple",
@@ -7100,8 +7100,8 @@
     "example": "Beware of what you wish.",
     "annotation": [
       {
-        "action_text": "Beware",
-        "action": "beware",
+        "action_text": "beware of",
+        "action": "beware of",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -7225,8 +7225,8 @@
     "example": "She blacked out, fell down, and hurt her knee.",
     "annotation": [
       {
-        "action_text": "blacked out down",
-        "action": "black out down",
+        "action_text": "blacked out",
+        "action": "black out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -7279,8 +7279,8 @@
     "example": "She blamed him for losing her bag.",
     "annotation": [
       {
-        "action_text": "blamed",
-        "action": "blame",
+        "action_text": "blamed for",
+        "action": "blame for",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -7450,7 +7450,7 @@
     "example": "Open the lid a little to let the steam blow off.",
     "annotation": [
       {
-        "action_text": "Open",
+        "action_text": "open",
         "action": "open",
         "tense": "present",
         "tense_aspect": "simple",
@@ -7479,8 +7479,8 @@
         "prep_object": null
       },
       {
-        "action_text": "needs off",
-        "action": "need off",
+        "action_text": "needs",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -7543,8 +7543,8 @@
     "example": "Wait till his anger blows over, then talk to him.",
     "annotation": [
       {
-        "action_text": "Wait over",
-        "action": "wait over",
+        "action_text": "wait",
+        "action": "wait",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -7604,8 +7604,8 @@
     "example": "The criminals threatened to blow up the building.",
     "annotation": [
       {
-        "action_text": "threatened up",
-        "action": "threaten up",
+        "action_text": "threatened",
+        "action": "threaten",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -7636,8 +7636,8 @@
     "example": "He boasted of owning the largest collection of jazz records in town.",
     "annotation": [
       {
-        "action_text": "boasted",
-        "action": "boast",
+        "action_text": "boasted of",
+        "action": "boast of",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -7711,8 +7711,8 @@
         "prep_object": null
       },
       {
-        "action_text": "managed away",
-        "action": "manage away",
+        "action_text": "managed",
+        "action": "manage",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -8586,8 +8586,8 @@
     "example": "She made quite a few mistakes on her test, so she needs to brush up on her spelling.",
     "annotation": [
       {
-        "action_text": "needs up",
-        "action": "need up",
+        "action_text": "needs",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -8602,7 +8602,7 @@
     "example": "Brush up on irregular verbs.",
     "annotation": [
       {
-        "action_text": "Brush up",
+        "action_text": "brush up",
         "action": "brush up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -8672,8 +8672,8 @@
     "example": "He needs to build up his English vocabulary.",
     "annotation": [
       {
-        "action_text": "needs up",
-        "action": "need up",
+        "action_text": "needs",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -8688,7 +8688,7 @@
     "example": "Take your umbrella; the clouds are building up.",
     "annotation": [
       {
-        "action_text": "Take",
+        "action_text": "take",
         "action": "take",
         "tense": "present",
         "tense_aspect": "simple",
@@ -8765,7 +8765,7 @@
     "example": "Bundle up; it's freezing outside.",
     "annotation": [
       {
-        "action_text": "Bundle up",
+        "action_text": "bundle up",
         "action": "bundle up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -9164,8 +9164,8 @@
     "example": "He tried to buy off a journalist who was going to expose his illegal activity.",
     "annotation": [
       {
-        "action_text": "tried off",
-        "action": "try off",
+        "action_text": "tried",
+        "action": "try",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -9218,8 +9218,8 @@
         "prep_object": null
       },
       {
-        "action_text": "bought",
-        "action": "buy",
+        "action_text": "bought out",
+        "action": "buy out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -9234,8 +9234,8 @@
     "example": "He also bought him out of military duty.",
     "annotation": [
       {
-        "action_text": "bought",
-        "action": "buy",
+        "action_text": "bought out",
+        "action": "buy out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -9250,7 +9250,7 @@
     "example": "Call me at 555-3246.",
     "annotation": [
       {
-        "action_text": "Call",
+        "action_text": "call",
         "action": "call",
         "tense": "present",
         "tense_aspect": "simple",
@@ -9279,8 +9279,8 @@
         "prep_object": "six"
       },
       {
-        "action_text": "was",
-        "action": "be",
+        "action_text": "was in",
+        "action": "be in",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -9451,8 +9451,8 @@
     "example": "The police decided to call off the search for the missing man.",
     "annotation": [
       {
-        "action_text": "decided off",
-        "action": "decide off",
+        "action_text": "decided",
+        "action": "decide",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -9558,7 +9558,7 @@
     "example": "Calm down! Everything will be all right.",
     "annotation": [
       {
-        "action_text": "Calm down",
+        "action_text": "calm down",
         "action": "calm down",
         "tense": "present",
         "tense_aspect": "simple",
@@ -9576,8 +9576,8 @@
     "example": "They like to camp out in the woods in summer.",
     "annotation": [
       {
-        "action_text": "like out",
-        "action": "like out",
+        "action_text": "like",
+        "action": "like",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -9673,7 +9673,7 @@
     "example": "Stop carping at me!",
     "annotation": [
       {
-        "action_text": "Stop",
+        "action_text": "stop",
         "action": "stop",
         "tense": "present",
         "tense_aspect": "simple",
@@ -9949,8 +9949,8 @@
     "example": "I need to catch up on my reading.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -9965,8 +9965,8 @@
     "example": "I need to catch up on sleep.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -10009,8 +10009,8 @@
     "example": "She is always trying to catch up with the richer neighbors.",
     "annotation": [
       {
-        "action_text": "trying up",
-        "action": "try up",
+        "action_text": "trying",
+        "action": "try",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -10041,8 +10041,8 @@
     "example": "I need to catch up with my studies.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -10297,8 +10297,8 @@
     "example": "He cheated her into giving him a large sum of money.",
     "annotation": [
       {
-        "action_text": "cheated",
-        "action": "cheat",
+        "action_text": "cheated into",
+        "action": "cheat into",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -10329,8 +10329,8 @@
     "example": "He cheated her out of her money.",
     "annotation": [
       {
-        "action_text": "cheated",
-        "action": "cheat",
+        "action_text": "cheated out",
+        "action": "cheat out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -10458,7 +10458,7 @@
     "example": "Check this word in the dictionary.",
     "annotation": [
       {
-        "action_text": "Check",
+        "action_text": "check",
         "action": "check",
         "tense": "present",
         "tense_aspect": "simple",
@@ -10508,7 +10508,7 @@
     "example": "Text me when you get there so I know you checked in.",
     "annotation": [
       {
-        "action_text": "Text",
+        "action_text": "text",
         "action": "text",
         "tense": "present",
         "tense_aspect": "simple",
@@ -10608,7 +10608,7 @@
     "example": "Check my name off the list.",
     "annotation": [
       {
-        "action_text": "Check",
+        "action_text": "check",
         "action": "check",
         "tense": "present",
         "tense_aspect": "simple",
@@ -10669,8 +10669,8 @@
         "prep_object": "him"
       },
       {
-        "action_text": "decided",
-        "action": "decide",
+        "action_text": "decided against",
+        "action": "decide against",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -10705,15 +10705,15 @@
     "example": "I checked out of the hotel at noon.",
     "annotation": [
       {
-        "action_text": "checked",
-        "action": "check",
+        "action_text": "checked out",
+        "action": "check out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "I",
         "object": null,
-        "prep": "at",
-        "prep_object": "noon"
+        "prep": "of",
+        "prep_object": "the hotel"
       }
     ]
   },
@@ -10913,8 +10913,8 @@
     "example": "You promised to clean out the closet.",
     "annotation": [
       {
-        "action_text": "promised out",
-        "action": "promise out",
+        "action_text": "promised",
+        "action": "promise",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -10945,8 +10945,8 @@
     "example": "We need to clean up the apartment before the party.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -10979,8 +10979,8 @@
     "example": "The police are going to clean up the slums.",
     "annotation": [
       {
-        "action_text": "going up",
-        "action": "go up",
+        "action_text": "going",
+        "action": "go",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -10995,8 +10995,8 @@
     "example": "After dinner my daughter helped me to clear off the table.",
     "annotation": [
       {
-        "action_text": "helped off",
-        "action": "help off",
+        "action_text": "helped",
+        "action": "help",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -11059,8 +11059,8 @@
     "example": "You promised to clear out the closet.",
     "annotation": [
       {
-        "action_text": "promised out",
-        "action": "promise out",
+        "action_text": "promised",
+        "action": "promise",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -11123,8 +11123,8 @@
     "example": "We need to clear up the living room.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -11139,8 +11139,8 @@
     "example": "I really want to clear up this mystery. Let me clear it up.",
     "annotation": [
       {
-        "action_text": "want up",
-        "action": "want up",
+        "action_text": "want",
+        "action": "want",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -11294,8 +11294,8 @@
     "example": "How did this question come about?",
     "annotation": [
       {
-        "action_text": "come",
-        "action": "come",
+        "action_text": "come about",
+        "action": "come about",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -11391,7 +11391,7 @@
     "example": "Come by one of these days.",
     "annotation": [
       {
-        "action_text": "Come",
+        "action_text": "come",
         "action": "come",
         "tense": "present",
         "tense_aspect": "simple",
@@ -11457,8 +11457,8 @@
     "example": "I can't believe he came down to stealing!",
     "annotation": [
       {
-        "action_text": "believe down",
-        "action": "believe down",
+        "action_text": "believe",
+        "action": "believe",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -11702,7 +11702,7 @@
     "example": "Come off it! Give me a break!",
     "annotation": [
       {
-        "action_text": "Come off",
+        "action_text": "come off",
         "action": "come off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -11720,7 +11720,7 @@
     "example": "Come on, let's go. We're already late.",
     "annotation": [
       {
-        "action_text": "Come on",
+        "action_text": "come on",
         "action": "come on",
         "tense": "present",
         "tense_aspect": "simple",
@@ -11756,8 +11756,8 @@
     "example": "The door opened, and Jim came out.",
     "annotation": [
       {
-        "action_text": "opened out",
-        "action": "open out",
+        "action_text": "opened",
+        "action": "open",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -11870,15 +11870,15 @@
         "prep_object": null
       },
       {
-        "action_text": "came",
-        "action": "come",
+        "action_text": "came out",
+        "action": "come out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "Jim",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the room"
       }
     ]
   },
@@ -12331,7 +12331,7 @@
     "example": "Compare this car with that car.",
     "annotation": [
       {
-        "action_text": "Compare",
+        "action_text": "compare",
         "action": "compare",
         "tense": "present",
         "tense_aspect": "simple",
@@ -12397,7 +12397,7 @@
     "example": "Complain to the manager.",
     "annotation": [
       {
-        "action_text": "Complain",
+        "action_text": "complain",
         "action": "complain",
         "tense": "present",
         "tense_aspect": "simple",
@@ -12415,7 +12415,7 @@
     "example": "Complain to the police about his action.",
     "annotation": [
       {
-        "action_text": "Complain",
+        "action_text": "complain",
         "action": "complain",
         "tense": "present",
         "tense_aspect": "simple",
@@ -12690,8 +12690,8 @@
     "example": "Wait till the engine cools off.",
     "annotation": [
       {
-        "action_text": "Wait off",
-        "action": "wait off",
+        "action_text": "wait",
+        "action": "wait",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -12708,7 +12708,7 @@
     "example": "Talk to him when hel cools off.",
     "annotation": [
       {
-        "action_text": "Talk",
+        "action_text": "talk",
         "action": "talk",
         "tense": "present",
         "tense_aspect": "simple",
@@ -12840,7 +12840,7 @@
     "example": "Close your eyes and count to 20.",
     "annotation": [
       {
-        "action_text": "Close",
+        "action_text": "close",
         "action": "close",
         "tense": "present",
         "tense_aspect": "simple",
@@ -12903,8 +12903,8 @@
     "example": "He tried to cover up his crime. She covered up for him.",
     "annotation": [
       {
-        "action_text": "tried up",
-        "action": "try up",
+        "action_text": "tried",
+        "action": "try",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -13026,8 +13026,8 @@
     "example": "We need to cut down our expenses.",
     "annotation": [
       {
-        "action_text": "need down",
-        "action": "need down",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -13074,8 +13074,8 @@
     "example": "The doctor advised her to cut down on chocolate.",
     "annotation": [
       {
-        "action_text": "advised down",
-        "action": "advise down",
+        "action_text": "advised",
+        "action": "advise",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -13181,8 +13181,8 @@
     "example": "The doctor told her to cut out fat food.",
     "annotation": [
       {
-        "action_text": "told out",
-        "action": "tell out",
+        "action_text": "told",
+        "action": "tell",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -13197,7 +13197,7 @@
     "example": "Cut out the details.",
     "annotation": [
       {
-        "action_text": "Cut out",
+        "action_text": "cut out",
         "action": "cut out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -13215,7 +13215,7 @@
     "example": "Cut out this paragraph; the report will be better without it.",
     "annotation": [
       {
-        "action_text": "Cut out",
+        "action_text": "cut out",
         "action": "cut out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -13261,7 +13261,7 @@
     "example": "Cut up these onions and carrots.",
     "annotation": [
       {
-        "action_text": "Cut up",
+        "action_text": "cut up",
         "action": "cut up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -13279,8 +13279,8 @@
     "example": "He decided against selling the house.",
     "annotation": [
       {
-        "action_text": "decided",
-        "action": "decide",
+        "action_text": "decided against",
+        "action": "decide against",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -13311,8 +13311,8 @@
     "example": "We decided on selling the house.",
     "annotation": [
       {
-        "action_text": "decided",
-        "action": "decide",
+        "action_text": "decided on",
+        "action": "decide on",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -13327,8 +13327,8 @@
     "example": "We decided on going to Spain in the summer.",
     "annotation": [
       {
-        "action_text": "decided",
-        "action": "decide",
+        "action_text": "decided on",
+        "action": "decide on",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -13562,8 +13562,8 @@
         "prep_object": "hunger"
       },
       {
-        "action_text": "die",
-        "action": "die",
+        "action_text": "die from",
+        "action": "die from",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -13794,7 +13794,7 @@
     "example": "Divide this cake into six parts.",
     "annotation": [
       {
-        "action_text": "Divide",
+        "action_text": "divide",
         "action": "divide",
         "tense": "present",
         "tense_aspect": "simple",
@@ -14003,8 +14003,8 @@
     "example": "What are you dressed up for?",
     "annotation": [
       {
-        "action_text": "dressed up",
-        "action": "dress up",
+        "action_text": "dressed up for",
+        "action": "dress up for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -14019,7 +14019,7 @@
     "example": "Let's drink to the newly weds!",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -14037,7 +14037,7 @@
     "example": "Let's drink to Anna's health.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -14087,8 +14087,8 @@
     "example": "How nice of you to drop by!",
     "annotation": [
       {
-        "action_text": "drop",
-        "action": "drop",
+        "action_text": "drop by",
+        "action": "drop by",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -14153,15 +14153,15 @@
     "example": "He dropped out of school when he was 15.",
     "annotation": [
       {
-        "action_text": "dropped",
-        "action": "drop",
+        "action_text": "dropped out",
+        "action": "drop out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "He",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "school"
       }
     ]
   },
@@ -14251,8 +14251,8 @@
     "example": "Please excuse me for being late.",
     "annotation": [
       {
-        "action_text": "excuse",
-        "action": "excuse",
+        "action_text": "excuse for",
+        "action": "excuse for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -14269,8 +14269,8 @@
     "example": "Excuse me for interrupting you, but could you give me a copy of the report?",
     "annotation": [
       {
-        "action_text": "Excuse",
-        "action": "excuse",
+        "action_text": "excuse for",
+        "action": "excuse for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -14540,15 +14540,15 @@
     "example": "This letter fell out of her bag.",
     "annotation": [
       {
-        "action_text": "fell",
-        "action": "fall",
+        "action_text": "fell out",
+        "action": "fall out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "This letter",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "her bag"
       }
     ]
   },
@@ -14556,15 +14556,15 @@
     "example": "They fell out of love and divorced.",
     "annotation": [
       {
-        "action_text": "fell",
-        "action": "fall",
+        "action_text": "fell out",
+        "action": "fall out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "They",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "love and divorced"
       }
     ]
   },
@@ -14572,8 +14572,8 @@
     "example": "He fell over a stair and hurt his knee.",
     "annotation": [
       {
-        "action_text": "fell over",
-        "action": "fall over",
+        "action_text": "fell",
+        "action": "fall",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -14699,7 +14699,7 @@
     "example": "Fill in your name and address, please.",
     "annotation": [
       {
-        "action_text": "Fill",
+        "action_text": "fill",
         "action": "fill",
         "tense": "present",
         "tense_aspect": "simple",
@@ -14717,7 +14717,7 @@
     "example": "Fill in this line, please.",
     "annotation": [
       {
-        "action_text": "Fill",
+        "action_text": "fill",
         "action": "fill",
         "tense": "present",
         "tense_aspect": "simple",
@@ -14735,7 +14735,7 @@
     "example": "Fill out this form, please.",
     "annotation": [
       {
-        "action_text": "Fill out",
+        "action_text": "fill out",
         "action": "fill out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -14753,8 +14753,8 @@
     "example": "The gas tank is almost empty, we need to fill it up at the nearest gas station.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -14901,8 +14901,8 @@
     "example": "Please forgive me for losing your book.",
     "annotation": [
       {
-        "action_text": "forgive",
-        "action": "forgive",
+        "action_text": "forgive for",
+        "action": "forgive for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -14919,8 +14919,8 @@
     "example": "Please forgive me for letting you down. I'll never do that again.",
     "annotation": [
       {
-        "action_text": "forgive down",
-        "action": "forgive down",
+        "action_text": "forgive for",
+        "action": "forgive for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -15142,8 +15142,8 @@
     "example": "Let's get away just for one day.",
     "annotation": [
       {
-        "action_text": "let away",
-        "action": "let away",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -15160,8 +15160,8 @@
     "example": "The robbers managed to get away from the police.",
     "annotation": [
       {
-        "action_text": "managed away",
-        "action": "manage away",
+        "action_text": "managed",
+        "action": "manage",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -15241,7 +15241,7 @@
     "example": "Get back to work.",
     "annotation": [
       {
-        "action_text": "Get back",
+        "action_text": "get back",
         "action": "get back",
         "tense": "present",
         "tense_aspect": "simple",
@@ -15259,8 +15259,8 @@
     "example": "Don't worry, we'll get by somehow.",
     "annotation": [
       {
-        "action_text": "get",
-        "action": "get",
+        "action_text": "get by",
+        "action": "get by",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -15355,8 +15355,8 @@
     "example": "Let's get down to business.",
     "annotation": [
       {
-        "action_text": "Let down",
-        "action": "let down",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -15405,7 +15405,7 @@
     "example": "Get into the car!",
     "annotation": [
       {
-        "action_text": "Get",
+        "action_text": "get",
         "action": "get",
         "tense": "present",
         "tense_aspect": "simple",
@@ -15456,7 +15456,7 @@
     "example": "Get your feet off the table!",
     "annotation": [
       {
-        "action_text": "Get",
+        "action_text": "get",
         "action": "get",
         "tense": "present",
         "tense_aspect": "simple",
@@ -15474,7 +15474,7 @@
     "example": "Get your hand off my shoulder!",
     "annotation": [
       {
-        "action_text": "Get",
+        "action_text": "get",
         "action": "get",
         "tense": "present",
         "tense_aspect": "simple",
@@ -15524,7 +15524,7 @@
     "example": "Is your book getting on?",
     "annotation": [
       {
-        "action_text": "Is",
+        "action_text": "is",
         "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
@@ -15556,8 +15556,8 @@
     "example": "She broke the window and got out.",
     "annotation": [
       {
-        "action_text": "broke out",
-        "action": "break out",
+        "action_text": "broke",
+        "action": "break",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -15583,15 +15583,15 @@
     "example": "Get out of the house!",
     "annotation": [
       {
-        "action_text": "Get",
-        "action": "get",
+        "action_text": "get out",
+        "action": "get out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "you",
         "object": null,
-        "prep": null,
-        "prep_object": null,
+        "prep": "of",
+        "prep_object": "the house",
         "mood": "imperative",
         "speech_act": "directive"
       }
@@ -15601,15 +15601,15 @@
     "example": "He got out of the car and walked to the bank.",
     "annotation": [
       {
-        "action_text": "got",
-        "action": "get",
+        "action_text": "got out",
+        "action": "get out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "He",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the car"
       },
       {
         "action_text": "walked",
@@ -15916,7 +15916,7 @@
     "example": "Give the book to Ann.",
     "annotation": [
       {
-        "action_text": "Give",
+        "action_text": "give",
         "action": "give",
         "tense": "present",
         "tense_aspect": "simple",
@@ -15934,7 +15934,7 @@
     "example": "Give my regards to your family.",
     "annotation": [
       {
-        "action_text": "Give",
+        "action_text": "give",
         "action": "give",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16133,7 +16133,7 @@
     "example": "Go back three pages.",
     "annotation": [
       {
-        "action_text": "Go back",
+        "action_text": "go back",
         "action": "go back",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16151,7 +16151,7 @@
     "example": "Go back to sleep.",
     "annotation": [
       {
-        "action_text": "Go back",
+        "action_text": "go back",
         "action": "go back",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16405,7 +16405,7 @@
     "example": "Go down this street and turn left at the bank.",
     "annotation": [
       {
-        "action_text": "Go",
+        "action_text": "go",
         "action": "go",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16436,7 +16436,7 @@
     "example": "Let's go for a walk.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16454,7 +16454,7 @@
     "example": "Let's go for a drive.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16602,7 +16602,7 @@
     "example": "Go on reading.",
     "annotation": [
       {
-        "action_text": "Go",
+        "action_text": "go",
         "action": "go",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16670,7 +16670,7 @@
     "example": "Go over these chapters again.",
     "annotation": [
       {
-        "action_text": "Go",
+        "action_text": "go",
         "action": "go",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16786,7 +16786,7 @@
     "example": "Go through these chapters again.",
     "annotation": [
       {
-        "action_text": "Go",
+        "action_text": "go",
         "action": "go",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16804,7 +16804,7 @@
     "example": "Go to bed.",
     "annotation": [
       {
-        "action_text": "Go",
+        "action_text": "go",
         "action": "go",
         "tense": "present",
         "tense_aspect": "simple",
@@ -16822,7 +16822,7 @@
     "example": "Go to page 9.",
     "annotation": [
       {
-        "action_text": "Go",
+        "action_text": "go",
         "action": "go",
         "tense": "present",
         "tense_aspect": "simple",
@@ -17233,15 +17233,15 @@
     "example": "He grew out of all his clothes.",
     "annotation": [
       {
-        "action_text": "grew",
-        "action": "grow",
+        "action_text": "grew out",
+        "action": "grow out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "He",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "all his clothes"
       }
     ]
   },
@@ -17249,15 +17249,15 @@
     "example": "His latest novel grew out of a brief encounter with a deer hunter.",
     "annotation": [
       {
-        "action_text": "grew",
-        "action": "grow",
+        "action_text": "grew out",
+        "action": "grow out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "His latest novel",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "a brief encounter with a deer hunter"
       }
     ]
   },
@@ -17313,8 +17313,8 @@
     "example": "Twice a week she helps to hand out blankets and clothes to homeless people.",
     "annotation": [
       {
-        "action_text": "helps out",
-        "action": "help out",
+        "action_text": "helps",
+        "action": "help",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -17329,7 +17329,7 @@
     "example": "Hang in there! Help is coming!",
     "annotation": [
       {
-        "action_text": "Hang",
+        "action_text": "hang",
         "action": "hang",
         "tense": "present",
         "tense_aspect": "simple",
@@ -17347,7 +17347,7 @@
     "example": "Hang in there! Don't give up!",
     "annotation": [
       {
-        "action_text": "Hang",
+        "action_text": "hang",
         "action": "hang",
         "tense": "present",
         "tense_aspect": "simple",
@@ -17461,8 +17461,8 @@
     "example": "He thanked her and hung up.",
     "annotation": [
       {
-        "action_text": "thanked up",
-        "action": "thank up",
+        "action_text": "thanked",
+        "action": "thank",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -17648,8 +17648,8 @@
     "example": "Thank you for helping me out.",
     "annotation": [
       {
-        "action_text": "Thank out",
-        "action": "thank out",
+        "action_text": "thank for",
+        "action": "thank for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -17792,8 +17792,8 @@
     "example": "She tried to hold back her tears.",
     "annotation": [
       {
-        "action_text": "tried back",
-        "action": "try back",
+        "action_text": "tried",
+        "action": "try",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -17840,7 +17840,7 @@
     "example": "Hold down the Ctrl key and press Home.",
     "annotation": [
       {
-        "action_text": "Hold down",
+        "action_text": "hold down",
         "action": "hold down",
         "tense": "present",
         "tense_aspect": "simple",
@@ -17858,7 +17858,7 @@
     "example": "Catch the rope and hold on!",
     "annotation": [
       {
-        "action_text": "Catch",
+        "action_text": "catch",
         "action": "catch",
         "tense": "present",
         "tense_aspect": "simple",
@@ -17937,7 +17937,7 @@
     "example": "Catch the rope and hold onto it!",
     "annotation": [
       {
-        "action_text": "Catch",
+        "action_text": "catch",
         "action": "catch",
         "tense": "present",
         "tense_aspect": "simple",
@@ -17968,7 +17968,7 @@
     "example": "Hold onto my arm.",
     "annotation": [
       {
-        "action_text": "Hold",
+        "action_text": "hold",
         "action": "hold",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18159,8 +18159,8 @@
     "example": "He insists on selling the house.",
     "annotation": [
       {
-        "action_text": "insists",
-        "action": "insist",
+        "action_text": "insists on",
+        "action": "insist on",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -18191,8 +18191,8 @@
     "example": "I insist on telling him the truth.",
     "annotation": [
       {
-        "action_text": "insist",
-        "action": "insist",
+        "action_text": "insist on",
+        "action": "insist on",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -18322,7 +18322,7 @@
     "example": "Try to involve him in sports.",
     "annotation": [
       {
-        "action_text": "Try",
+        "action_text": "try",
         "action": "try",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18531,8 +18531,8 @@
     "example": "We must keep him from going there alone.",
     "annotation": [
       {
-        "action_text": "keep",
-        "action": "keep",
+        "action_text": "keep from",
+        "action": "keep from",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -18574,7 +18574,7 @@
     "example": "Try to keep from arguing with him.",
     "annotation": [
       {
-        "action_text": "Try",
+        "action_text": "try",
         "action": "try",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18592,7 +18592,7 @@
     "example": "Keep off the grass!",
     "annotation": [
       {
-        "action_text": "Keep off",
+        "action_text": "keep off",
         "action": "keep off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18610,7 +18610,7 @@
     "example": "Keep your hands off my books!",
     "annotation": [
       {
-        "action_text": "Keep",
+        "action_text": "keep",
         "action": "keep",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18646,7 +18646,7 @@
     "example": "Keep on working.",
     "annotation": [
       {
-        "action_text": "Keep on working",
+        "action_text": "keep on working",
         "action": "keep on work",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18736,15 +18736,15 @@
     "example": "Keep out of this building.",
     "annotation": [
       {
-        "action_text": "Keep",
-        "action": "keep",
+        "action_text": "keep out",
+        "action": "keep out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "you",
         "object": null,
-        "prep": null,
-        "prep_object": null,
+        "prep": "of",
+        "prep_object": "this building",
         "mood": "imperative",
         "speech_act": "directive"
       }
@@ -18754,15 +18754,15 @@
     "example": "I'll handle it myself, you should keep out of this.",
     "annotation": [
       {
-        "action_text": "keep",
-        "action": "keep",
+        "action_text": "keep out",
+        "action": "keep out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "you",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "this"
       }
     ]
   },
@@ -18770,7 +18770,7 @@
     "example": "Try to keep her out of trouble.",
     "annotation": [
       {
-        "action_text": "Try",
+        "action_text": "try",
         "action": "try",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18788,7 +18788,7 @@
     "example": "Keep up the good work. Keep it up.",
     "annotation": [
       {
-        "action_text": "Keep up",
+        "action_text": "keep up",
         "action": "keep up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -18806,8 +18806,8 @@
     "example": "She is always trying to keep up with the richer neighbors.",
     "annotation": [
       {
-        "action_text": "trying up",
-        "action": "try up",
+        "action_text": "trying",
+        "action": "try",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -18855,8 +18855,8 @@
     "example": "Knock on wood to ward off bad luck.",
     "annotation": [
       {
-        "action_text": "Knock off",
-        "action": "knock off",
+        "action_text": "knock",
+        "action": "knock",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -18889,7 +18889,7 @@
     "example": "Knock it off, I said, or I'll call the guards!",
     "annotation": [
       {
-        "action_text": "Knock off",
+        "action_text": "knock off",
         "action": "knock off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -19320,7 +19320,7 @@
     "example": "Leave out the dirty details, please.",
     "annotation": [
       {
-        "action_text": "Leave out",
+        "action_text": "leave out",
         "action": "leave out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -19370,7 +19370,7 @@
     "example": "Leave this task to Jim.",
     "annotation": [
       {
-        "action_text": "Leave",
+        "action_text": "leave",
         "action": "leave",
         "tense": "present",
         "tense_aspect": "simple",
@@ -19470,7 +19470,7 @@
     "example": "Let her in.",
     "annotation": [
       {
-        "action_text": "Let in",
+        "action_text": "let in",
         "action": "let in",
         "tense": "present",
         "tense_aspect": "simple",
@@ -19519,7 +19519,7 @@
     "example": "Let her out.",
     "annotation": [
       {
-        "action_text": "Let out",
+        "action_text": "let out",
         "action": "let out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -19537,7 +19537,7 @@
     "example": "Listen to the teacher.",
     "annotation": [
       {
-        "action_text": "Listen",
+        "action_text": "listen",
         "action": "listen",
         "tense": "present",
         "tense_aspect": "simple",
@@ -19679,8 +19679,8 @@
     "example": "He forgot to lock up the house before he left.",
     "annotation": [
       {
-        "action_text": "forgot up",
-        "action": "forget up",
+        "action_text": "forgot",
+        "action": "forget",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -19765,8 +19765,8 @@
     "example": "He came in and looked around.",
     "annotation": [
       {
-        "action_text": "came in around",
-        "action": "come in around",
+        "action_text": "came in",
+        "action": "come in",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -20007,8 +20007,8 @@
     "example": "After she became rich, she began to look down on her former friends.",
     "annotation": [
       {
-        "action_text": "began down",
-        "action": "begin down",
+        "action_text": "began",
+        "action": "begin",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -20103,7 +20103,7 @@
     "example": "Look in the kitchen.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20121,7 +20121,7 @@
     "example": "Look in your bag.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20171,7 +20171,7 @@
     "example": "Look out! There's a big dog right behind you!",
     "annotation": [
       {
-        "action_text": "Look out",
+        "action_text": "look out",
         "action": "look out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20189,7 +20189,7 @@
     "example": "Look out! The bus is coming.",
     "annotation": [
       {
-        "action_text": "Look out",
+        "action_text": "look out",
         "action": "look out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20207,15 +20207,15 @@
     "example": "He looked out of the window.",
     "annotation": [
       {
-        "action_text": "looked",
-        "action": "look",
+        "action_text": "looked out",
+        "action": "look out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "He",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the window"
       }
     ]
   },
@@ -20223,7 +20223,7 @@
     "example": "Look over your notes before the test.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20273,7 +20273,7 @@
     "example": "Look through this glass.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20291,7 +20291,7 @@
     "example": "Look through this hole.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20309,7 +20309,7 @@
     "example": "Look through your notes before the test.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20327,7 +20327,7 @@
     "example": "Look to it that all is done as we agreed.",
     "annotation": [
       {
-        "action_text": "Look",
+        "action_text": "look",
         "action": "look",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20372,7 +20372,7 @@
     "example": "Look up this information in the encyclopedia.",
     "annotation": [
       {
-        "action_text": "Look up",
+        "action_text": "look up",
         "action": "look up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20390,7 +20390,7 @@
     "example": "Look up the new words in the dictionary.",
     "annotation": [
       {
-        "action_text": "Look up",
+        "action_text": "look up",
         "action": "look up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20408,7 +20408,7 @@
     "example": "Look them up.",
     "annotation": [
       {
-        "action_text": "Look up",
+        "action_text": "look up",
         "action": "look up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20673,7 +20673,7 @@
     "example": "Make up a story about your summer vacation.",
     "annotation": [
       {
-        "action_text": "Make up",
+        "action_text": "make up",
         "action": "make up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20916,7 +20916,7 @@
     "example": "Let's move on to the third question.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -20962,15 +20962,15 @@
     "example": "They moved out of the house.",
     "annotation": [
       {
-        "action_text": "moved",
-        "action": "move",
+        "action_text": "moved out",
+        "action": "move out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "They",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the house"
       }
     ]
   },
@@ -21177,8 +21177,8 @@
     "example": "He objects to going there tonight.",
     "annotation": [
       {
-        "action_text": "objects",
-        "action": "object",
+        "action_text": "objects to",
+        "action": "object to",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -21549,7 +21549,7 @@
     "example": "Pack up your things and get out!",
     "annotation": [
       {
-        "action_text": "Pack up",
+        "action_text": "pack up",
         "action": "pack up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -21591,8 +21591,8 @@
         "prep_object": null
       },
       {
-        "action_text": "'s up",
-        "action": "be up",
+        "action_text": "'s",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22060,8 +22060,8 @@
     "example": "He bent down and picked up a penny from the ground.",
     "annotation": [
       {
-        "action_text": "bent down up",
-        "action": "bend down up",
+        "action_text": "bent down",
+        "action": "bend down",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -22135,8 +22135,8 @@
     "example": "The telephone is ringing, pick it up! Pick up the phone!",
     "annotation": [
       {
-        "action_text": "ringing up",
-        "action": "ring up",
+        "action_text": "ringing",
+        "action": "ring",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -22146,8 +22146,8 @@
         "prep_object": null
       },
       {
-        "action_text": "pick up up",
-        "action": "pick up up",
+        "action_text": "pick up",
+        "action": "pick up",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22162,8 +22162,8 @@
     "example": "You need to pick up your room.",
     "annotation": [
       {
-        "action_text": "need up",
-        "action": "need up",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22178,7 +22178,7 @@
     "example": "Plug in the coffee machine, please.",
     "annotation": [
       {
-        "action_text": "Plug",
+        "action_text": "plug",
         "action": "plug",
         "tense": "present",
         "tense_aspect": "simple",
@@ -22306,8 +22306,8 @@
     "example": "I'd like to point out several important facts in this report.",
     "annotation": [
       {
-        "action_text": "like out",
-        "action": "like out",
+        "action_text": "like",
+        "action": "like",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22370,7 +22370,7 @@
     "example": "Let's talk about it later. I'm pressed for time now.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -22437,8 +22437,8 @@
     "example": "How can I prevent him from making this terrible mistake?",
     "annotation": [
       {
-        "action_text": "prevent",
-        "action": "prevent",
+        "action_text": "prevent from",
+        "action": "prevent from",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22453,8 +22453,8 @@
     "example": "His illness prevented him from coming to the meeting.",
     "annotation": [
       {
-        "action_text": "prevented",
-        "action": "prevent",
+        "action_text": "prevented from",
+        "action": "prevent from",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -22533,8 +22533,8 @@
     "example": "His children are provided for.",
     "annotation": [
       {
-        "action_text": "provided",
-        "action": "provide",
+        "action_text": "provided for",
+        "action": "provide for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22911,8 +22911,8 @@
     "example": "He managed to pull off this trick again.",
     "annotation": [
       {
-        "action_text": "managed off",
-        "action": "manage off",
+        "action_text": "managed",
+        "action": "manage",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -22927,8 +22927,8 @@
     "example": "Stop crying and pull yourself together.",
     "annotation": [
       {
-        "action_text": "Stop crying together",
-        "action": "stop cry together",
+        "action_text": "stop crying",
+        "action": "stop cry",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -22958,8 +22958,8 @@
     "example": "She stopped screaming and pulled herself together.",
     "annotation": [
       {
-        "action_text": "stopped screaming together",
-        "action": "stop scream together",
+        "action_text": "stopped screaming",
+        "action": "stop scream",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -23061,15 +23061,15 @@
     "example": "The bus is pulling out of the station now.",
     "annotation": [
       {
-        "action_text": "pulling",
-        "action": "pull",
+        "action_text": "pulling out",
+        "action": "pull out",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
         "subject": "The bus",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the station"
       }
     ]
   },
@@ -23077,8 +23077,8 @@
     "example": "The traffic police officer ordered us to pull over.",
     "annotation": [
       {
-        "action_text": "ordered over",
-        "action": "order over",
+        "action_text": "ordered",
+        "action": "order",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -23093,7 +23093,7 @@
     "example": "Pull over at the bank, please.",
     "annotation": [
       {
-        "action_text": "Pull over",
+        "action_text": "pull over",
         "action": "pull over",
         "tense": "present",
         "tense_aspect": "simple",
@@ -23111,8 +23111,8 @@
     "example": "I hope he will pull through.",
     "annotation": [
       {
-        "action_text": "hope through",
-        "action": "hope through",
+        "action_text": "hope",
+        "action": "hope",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -23347,8 +23347,8 @@
     "example": "They pushed him out of the car and drove off.",
     "annotation": [
       {
-        "action_text": "pushed",
-        "action": "push",
+        "action_text": "pushed out",
+        "action": "push out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -23374,7 +23374,7 @@
     "example": "Put aside your newspaper and listen to me.",
     "annotation": [
       {
-        "action_text": "Put aside",
+        "action_text": "put aside",
         "action": "put aside",
         "tense": "present",
         "tense_aspect": "simple",
@@ -23437,8 +23437,8 @@
     "example": "Let's put our differences aside and work out a plan that can save our company.",
     "annotation": [
       {
-        "action_text": "Let aside",
-        "action": "let aside",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -23482,7 +23482,7 @@
     "example": "Put my calculator back after you use it.",
     "annotation": [
       {
-        "action_text": "Put back",
+        "action_text": "put back",
         "action": "put back",
         "tense": "present",
         "tense_aspect": "simple",
@@ -23500,7 +23500,7 @@
     "example": "Put your bag down.",
     "annotation": [
       {
-        "action_text": "Put down",
+        "action_text": "put down",
         "action": "put down",
         "tense": "present",
         "tense_aspect": "simple",
@@ -23765,7 +23765,7 @@
     "example": "Put out the light before you leave.",
     "annotation": [
       {
-        "action_text": "Put out",
+        "action_text": "put out",
         "action": "put out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -23783,7 +23783,7 @@
     "example": "Put out your cigarette, please.",
     "annotation": [
       {
-        "action_text": "Put out",
+        "action_text": "put out",
         "action": "put out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -23834,8 +23834,8 @@
     "example": "I'm not going to put up with his rudeness.",
     "annotation": [
       {
-        "action_text": "going up",
-        "action": "go up",
+        "action_text": "going",
+        "action": "go",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -23947,7 +23947,7 @@
     "example": "Remember me to your family.",
     "annotation": [
       {
-        "action_text": "Remember",
+        "action_text": "remember",
         "action": "remember",
         "tense": "present",
         "tense_aspect": "simple",
@@ -24369,7 +24369,7 @@
     "example": "Run for help!",
     "annotation": [
       {
-        "action_text": "Run",
+        "action_text": "run",
         "action": "run",
         "tense": "present",
         "tense_aspect": "simple",
@@ -24387,7 +24387,7 @@
     "example": "Run for cover!",
     "annotation": [
       {
-        "action_text": "Run",
+        "action_text": "run",
         "action": "run",
         "tense": "present",
         "tense_aspect": "simple",
@@ -24512,8 +24512,8 @@
     "example": "The doors opened, and people ran out.",
     "annotation": [
       {
-        "action_text": "opened out",
-        "action": "open out",
+        "action_text": "opened",
+        "action": "open",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -24614,15 +24614,15 @@
     "example": "He ran out of the house.",
     "annotation": [
       {
-        "action_text": "ran",
-        "action": "run",
+        "action_text": "ran out",
+        "action": "run out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "He",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the house"
       }
     ]
   },
@@ -24630,15 +24630,15 @@
     "example": "We've run out of sugar.",
     "annotation": [
       {
-        "action_text": "run",
-        "action": "run",
+        "action_text": "run out",
+        "action": "run out",
         "tense": "present",
         "tense_aspect": "perfect",
         "time_relation": "present",
         "subject": "We",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "sugar"
       }
     ]
   },
@@ -24646,15 +24646,15 @@
     "example": "We are running out of time.",
     "annotation": [
       {
-        "action_text": "running",
-        "action": "run",
+        "action_text": "running out",
+        "action": "run out",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
         "subject": "We",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "time"
       }
     ]
   },
@@ -24742,7 +24742,7 @@
     "example": "Save this wine for next week.",
     "annotation": [
       {
-        "action_text": "Save",
+        "action_text": "save",
         "action": "save",
         "tense": "present",
         "tense_aspect": "simple",
@@ -25088,7 +25088,7 @@
     "example": "See to it that all is done as we agreed.",
     "annotation": [
       {
-        "action_text": "See",
+        "action_text": "see",
         "action": "see",
         "tense": "present",
         "tense_aspect": "simple",
@@ -25154,7 +25154,7 @@
     "example": "Set aside your newspaper and listen to me.",
     "annotation": [
       {
-        "action_text": "Set aside",
+        "action_text": "set aside",
         "action": "Set aside",
         "tense": "past",
         "tense_aspect": "simple",
@@ -25199,8 +25199,8 @@
     "example": "I asked the salesclerk to set aside the diamond ring for me.",
     "annotation": [
       {
-        "action_text": "asked aside",
-        "action": "ask aside",
+        "action_text": "asked",
+        "action": "ask",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -25215,8 +25215,8 @@
     "example": "Let's set our differences aside and work out a plan that can save our company.",
     "annotation": [
       {
-        "action_text": "Let aside",
-        "action": "let aside",
+        "action_text": "let",
+        "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -25285,8 +25285,8 @@
     "example": "Darkness sets in early in winter.",
     "annotation": [
       {
-        "action_text": "sets",
-        "action": "set",
+        "action_text": "sets in",
+        "action": "set in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -25417,8 +25417,8 @@
     "example": "It is difficult to set out as a lawyer these days.",
     "annotation": [
       {
-        "action_text": "is difficult out",
-        "action": "be difficult out",
+        "action_text": "is difficult",
+        "action": "be difficult",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -25698,7 +25698,7 @@
     "example": "Shake off that stupid friend of yours and come to my place alone.",
     "annotation": [
       {
-        "action_text": "Shake off",
+        "action_text": "shake off",
         "action": "shake off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -25757,7 +25757,7 @@
     "example": "Shake up the liquid before drinking it.",
     "annotation": [
       {
-        "action_text": "Shake up",
+        "action_text": "shake up",
         "action": "shake up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -25992,8 +25992,8 @@
     "example": "Please come in and sit down.",
     "annotation": [
       {
-        "action_text": "come in down",
-        "action": "come in down",
+        "action_text": "come in",
+        "action": "come in",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -26087,7 +26087,7 @@
     "example": "Sit up, don't slouch.",
     "annotation": [
       {
-        "action_text": "Sit up",
+        "action_text": "sit up",
         "action": "sit up",
         "tense": "present",
         "tense_aspect": "simple",
@@ -26167,8 +26167,8 @@
     "example": "Time slips by quickly.",
     "annotation": [
       {
-        "action_text": "slips",
-        "action": "slip",
+        "action_text": "slips by",
+        "action": "slip by",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -26305,15 +26305,15 @@
     "example": "The letter slipped out of her hand and fell to the floor.",
     "annotation": [
       {
-        "action_text": "slipped",
-        "action": "slip",
+        "action_text": "slipped out",
+        "action": "slip out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "The letter",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "her hand"
       },
       {
         "action_text": "fell",
@@ -26348,15 +26348,15 @@
     "example": "She slipped out of her dress.",
     "annotation": [
       {
-        "action_text": "slipped",
-        "action": "slip",
+        "action_text": "slipped out",
+        "action": "slip out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "She",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "her dress"
       }
     ]
   },
@@ -26407,8 +26407,8 @@
     "example": "You live like there's no tomorrow, you have to slow down.",
     "annotation": [
       {
-        "action_text": "have down",
-        "action": "have down",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -26487,7 +26487,7 @@
     "example": "Sort out the verbs alphabetically.",
     "annotation": [
       {
-        "action_text": "Sort out",
+        "action_text": "sort out",
         "action": "sort out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -26505,7 +26505,7 @@
     "example": "Sort out the books according to the date of release.",
     "annotation": [
       {
-        "action_text": "Sort out",
+        "action_text": "sort out",
         "action": "sort out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -26523,8 +26523,8 @@
     "example": "I need some time to sort out my thoughts.",
     "annotation": [
       {
-        "action_text": "need out",
-        "action": "need out",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -26738,15 +26738,15 @@
         "prep_object": "it"
       },
       {
-        "action_text": "are up",
-        "action": "be up",
+        "action_text": "are",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "not many of them",
         "object": "ready to speak up",
-        "prep": null,
-        "prep_object": null
+        "prep": "against",
+        "prep_object": "it"
       }
     ]
   },
@@ -27113,8 +27113,8 @@
     "example": "He is able to stand up for himself.",
     "annotation": [
       {
-        "action_text": "is up",
-        "action": "be up",
+        "action_text": "is",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -27129,7 +27129,7 @@
     "example": "Start from the very beginning.",
     "annotation": [
       {
-        "action_text": "Start",
+        "action_text": "start",
         "action": "start",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27179,7 +27179,7 @@
     "example": "Let me start our party with a drink to Tom's health.",
     "annotation": [
       {
-        "action_text": "Let",
+        "action_text": "let",
         "action": "let",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27197,7 +27197,7 @@
     "example": "Start with Chapter 3.",
     "annotation": [
       {
-        "action_text": "Start",
+        "action_text": "start",
         "action": "start",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27247,8 +27247,8 @@
     "example": "She always tries to stay away from the crowds.",
     "annotation": [
       {
-        "action_text": "tries away",
-        "action": "try away",
+        "action_text": "tries",
+        "action": "try",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -27279,7 +27279,7 @@
     "example": "Stay away from the river!",
     "annotation": [
       {
-        "action_text": "Stay away",
+        "action_text": "stay away",
         "action": "stay away",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27297,15 +27297,15 @@
     "example": "Stay out of this building.",
     "annotation": [
       {
-        "action_text": "Stay",
-        "action": "stay",
+        "action_text": "stay out",
+        "action": "stay out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "you",
         "object": null,
-        "prep": null,
-        "prep_object": null,
+        "prep": "of",
+        "prep_object": "this building",
         "mood": "imperative",
         "speech_act": "directive"
       }
@@ -27315,15 +27315,15 @@
     "example": "I can handle it, you should stay out of this.",
     "annotation": [
       {
-        "action_text": "stay",
-        "action": "stay",
+        "action_text": "stay out",
+        "action": "stay out",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
         "subject": "you",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "this"
       }
     ]
   },
@@ -27331,7 +27331,7 @@
     "example": "Try to stay out of trouble.",
     "annotation": [
       {
-        "action_text": "Try",
+        "action_text": "try",
         "action": "try",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27392,7 +27392,7 @@
     "example": "Stay with me for an hour.",
     "annotation": [
       {
-        "action_text": "Stay",
+        "action_text": "stay",
         "action": "stay",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27622,8 +27622,8 @@
         "prep_object": null
       },
       {
-        "action_text": "have out",
-        "action": "have out",
+        "action_text": "have",
+        "action": "have",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -27649,8 +27649,8 @@
         "prep_object": null
       },
       {
-        "action_text": "managed out",
-        "action": "manage out",
+        "action_text": "managed",
+        "action": "manage",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -27697,8 +27697,8 @@
     "example": "He doesn't like to stick out in a crowd.",
     "annotation": [
       {
-        "action_text": "like out",
-        "action": "like out",
+        "action_text": "like",
+        "action": "like",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -27714,7 +27714,7 @@
     "example": "Stick this note to the door.",
     "annotation": [
       {
-        "action_text": "Stick",
+        "action_text": "stick",
         "action": "stick",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27732,7 +27732,7 @@
     "example": "Wet hair sticks to everything.",
     "annotation": [
       {
-        "action_text": "Wet",
+        "action_text": "wet",
         "action": "wet",
         "tense": "present",
         "tense_aspect": "simple",
@@ -27786,8 +27786,8 @@
     "example": "Then they tried to stick up a passerby, but he ran away and called the police.",
     "annotation": [
       {
-        "action_text": "tried up",
-        "action": "try up",
+        "action_text": "tried",
+        "action": "try",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -27931,8 +27931,8 @@
     "example": "How can I stop him from making this terrible mistake?",
     "annotation": [
       {
-        "action_text": "stop",
-        "action": "stop",
+        "action_text": "stop from",
+        "action": "stop from",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -27947,8 +27947,8 @@
     "example": "He stood up and straightened out his back.",
     "annotation": [
       {
-        "action_text": "stood up out",
-        "action": "stand up out",
+        "action_text": "stood up",
+        "action": "stand up",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -27990,8 +27990,8 @@
     "example": "I need to straighten out my thoughts.",
     "annotation": [
       {
-        "action_text": "need out",
-        "action": "need out",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -28022,8 +28022,8 @@
     "example": "He stood up and straightened up his back.",
     "annotation": [
       {
-        "action_text": "stood up up",
-        "action": "stand up up",
+        "action_text": "stood up",
+        "action": "stand up",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -28253,7 +28253,7 @@
     "example": "Switch off the light, please.",
     "annotation": [
       {
-        "action_text": "Switch off",
+        "action_text": "switch off",
         "action": "switch off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -28314,7 +28314,7 @@
     "example": "Switch on the light, please.",
     "annotation": [
       {
-        "action_text": "Switch",
+        "action_text": "switch",
         "action": "switch",
         "tense": "present",
         "tense_aspect": "simple",
@@ -29096,8 +29096,8 @@
     "example": "He talked her into selling the house.",
     "annotation": [
       {
-        "action_text": "talked",
-        "action": "talk",
+        "action_text": "talked into",
+        "action": "talk into",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -29112,8 +29112,8 @@
     "example": "He talked her into giving him all her money.",
     "annotation": [
       {
-        "action_text": "talked",
-        "action": "talk",
+        "action_text": "talked into",
+        "action": "talk into",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -29160,8 +29160,8 @@
     "example": "He talked her out of selling the house.",
     "annotation": [
       {
-        "action_text": "talked",
-        "action": "talk",
+        "action_text": "talked out",
+        "action": "talk out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -29176,8 +29176,8 @@
     "example": "He talked her out of getting a dog.",
     "annotation": [
       {
-        "action_text": "talked",
-        "action": "talk",
+        "action_text": "talked out",
+        "action": "talk out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -29342,8 +29342,8 @@
     "example": "I wonder why he tore out page 5.",
     "annotation": [
       {
-        "action_text": "wonder out",
-        "action": "wonder out",
+        "action_text": "wonder",
+        "action": "wonder",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -29417,7 +29417,7 @@
     "example": "Tell me about your family, please.",
     "annotation": [
       {
-        "action_text": "Tell",
+        "action_text": "tell",
         "action": "tell",
         "tense": "present",
         "tense_aspect": "simple",
@@ -29499,7 +29499,7 @@
     "example": "Promise not to tell on me!",
     "annotation": [
       {
-        "action_text": "Promise",
+        "action_text": "promise",
         "action": "promise",
         "tense": "present",
         "tense_aspect": "simple",
@@ -29533,8 +29533,8 @@
     "example": "Thank you for telling me about it.",
     "annotation": [
       {
-        "action_text": "Thank",
-        "action": "thank",
+        "action_text": "thank for",
+        "action": "thank for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -29740,7 +29740,7 @@
     "example": "Throw out the garbage, please.",
     "annotation": [
       {
-        "action_text": "Throw out",
+        "action_text": "throw out",
         "action": "throw out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -29818,8 +29818,8 @@
     "example": "I'm pretty tied up at the moment. Can you call back later?",
     "annotation": [
       {
-        "action_text": "'m up",
-        "action": "be up",
+        "action_text": "'m",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -29870,8 +29870,8 @@
     "example": "They are trying to track down the cause of this strange disease.",
     "annotation": [
       {
-        "action_text": "trying down",
-        "action": "try down",
+        "action_text": "trying",
+        "action": "try",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -29902,7 +29902,7 @@
     "example": "Translate this passage into English.",
     "annotation": [
       {
-        "action_text": "Translate",
+        "action_text": "translate",
         "action": "translate",
         "tense": "present",
         "tense_aspect": "simple",
@@ -29968,7 +29968,7 @@
     "example": "Treat this man with respect.",
     "annotation": [
       {
-        "action_text": "Treat",
+        "action_text": "treat",
         "action": "treat",
         "tense": "present",
         "tense_aspect": "simple",
@@ -30491,8 +30491,8 @@
     "example": "He washed his face and turned off the water.",
     "annotation": [
       {
-        "action_text": "washed off",
-        "action": "wash off",
+        "action_text": "washed",
+        "action": "wash",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -30518,7 +30518,7 @@
     "example": "Turn off the light.",
     "annotation": [
       {
-        "action_text": "Turn off",
+        "action_text": "turn off",
         "action": "turn off",
         "tense": "present",
         "tense_aspect": "simple",
@@ -30579,7 +30579,7 @@
     "example": "Turn on the light.",
     "annotation": [
       {
-        "action_text": "Turn",
+        "action_text": "turn",
         "action": "turn",
         "tense": "present",
         "tense_aspect": "simple",
@@ -30597,7 +30597,7 @@
     "example": "Is there anything that can turn on his interest?",
     "annotation": [
       {
-        "action_text": "Is",
+        "action_text": "is",
         "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
@@ -30673,7 +30673,7 @@
     "example": "Turn out the lights, please.",
     "annotation": [
       {
-        "action_text": "Turn out",
+        "action_text": "turn out",
         "action": "turn out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -30755,8 +30755,8 @@
     "example": "The car hit the guardrail and turned over.",
     "annotation": [
       {
-        "action_text": "hit over",
-        "action": "hit over",
+        "action_text": "hit",
+        "action": "hit",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -30798,7 +30798,7 @@
     "example": "Turn to me, please.",
     "annotation": [
       {
-        "action_text": "Turn",
+        "action_text": "turn",
         "action": "turn",
         "tense": "present",
         "tense_aspect": "simple",
@@ -30848,7 +30848,7 @@
     "example": "Turn to page 20.",
     "annotation": [
       {
-        "action_text": "Turn",
+        "action_text": "turn",
         "action": "turn",
         "tense": "present",
         "tense_aspect": "simple",
@@ -31289,15 +31289,15 @@
     "example": "They walked out of the meeting.",
     "annotation": [
       {
-        "action_text": "walked",
-        "action": "walk",
+        "action_text": "walked out",
+        "action": "walk out",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
         "subject": "They",
         "object": null,
-        "prep": null,
-        "prep_object": null
+        "prep": "of",
+        "prep_object": "the meeting"
       }
     ]
   },
@@ -31337,8 +31337,8 @@
     "example": "They were able to ward off the first two attacks.",
     "annotation": [
       {
-        "action_text": "were off",
-        "action": "be off",
+        "action_text": "were",
+        "action": "be",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -31498,8 +31498,8 @@
     "example": "He warned me against going there alone.",
     "annotation": [
       {
-        "action_text": "warned",
-        "action": "warn",
+        "action_text": "warned against",
+        "action": "warn against",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -31589,8 +31589,8 @@
     "example": "These stains are hard to wash out.",
     "annotation": [
       {
-        "action_text": "are out",
-        "action": "be out",
+        "action_text": "are",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -31637,7 +31637,7 @@
     "example": "Watch for the signal from the boat.",
     "annotation": [
       {
-        "action_text": "Watch",
+        "action_text": "watch",
         "action": "watch",
         "tense": "present",
         "tense_aspect": "simple",
@@ -31655,7 +31655,7 @@
     "example": "Watch out! There's a big dog right behind you!",
     "annotation": [
       {
-        "action_text": "Watch out",
+        "action_text": "watch out",
         "action": "watch out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -31673,7 +31673,7 @@
     "example": "Watch out! The bus is coming.",
     "annotation": [
       {
-        "action_text": "Watch out",
+        "action_text": "watch out",
         "action": "watch out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -31771,8 +31771,8 @@
     "example": "The effect of the drug began to wear off, and she was in pain again.",
     "annotation": [
       {
-        "action_text": "began off",
-        "action": "begin off",
+        "action_text": "began",
+        "action": "begin",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -31798,8 +31798,8 @@
     "example": "The equipment is old and worn out.",
     "annotation": [
       {
-        "action_text": "is out",
-        "action": "be out",
+        "action_text": "is",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -31862,8 +31862,8 @@
     "example": "After two years of absence, we are happy to welcome back Lena Brown!",
     "annotation": [
       {
-        "action_text": "are back",
-        "action": "be back",
+        "action_text": "are",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -31928,7 +31928,7 @@
     "example": "Welcome to our city!",
     "annotation": [
       {
-        "action_text": "Welcome",
+        "action_text": "welcome",
         "action": "welcome",
         "tense": "present",
         "tense_aspect": "simple",
@@ -31996,8 +31996,8 @@
     "example": "They managed to win back their city occupied by the enemy.",
     "annotation": [
       {
-        "action_text": "managed back",
-        "action": "manage back",
+        "action_text": "managed",
+        "action": "manage",
         "tense": "past",
         "tense_aspect": "simple",
         "time_relation": "past",
@@ -32012,8 +32012,8 @@
     "example": "He is trying to win back her love.",
     "annotation": [
       {
-        "action_text": "trying back",
-        "action": "try back",
+        "action_text": "trying",
+        "action": "try",
         "tense": "present",
         "tense_aspect": "progressive",
         "time_relation": "ongoing",
@@ -32076,8 +32076,8 @@
     "example": "He's wound up and extremely touchy.",
     "annotation": [
       {
-        "action_text": "'s up",
-        "action": "be up",
+        "action_text": "'s",
+        "action": "be",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -32344,7 +32344,7 @@
     "example": "Work at your pronunciation.",
     "annotation": [
       {
-        "action_text": "Work",
+        "action_text": "work",
         "action": "work",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32426,8 +32426,8 @@
     "example": "He works for free.",
     "annotation": [
       {
-        "action_text": "works",
-        "action": "work",
+        "action_text": "works for",
+        "action": "work for",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -32506,7 +32506,7 @@
     "example": "Work on your pronunciation.",
     "annotation": [
       {
-        "action_text": "Work",
+        "action_text": "work",
         "action": "work",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32540,8 +32540,8 @@
     "example": "We need to work out a plan how to save our friend.",
     "annotation": [
       {
-        "action_text": "need out",
-        "action": "need out",
+        "action_text": "need",
+        "action": "need",
         "tense": "present",
         "tense_aspect": "simple",
         "time_relation": "present",
@@ -32751,7 +32751,7 @@
     "example": "Write down your task for tomorrow.",
     "annotation": [
       {
-        "action_text": "Write down",
+        "action_text": "write down",
         "action": "write down",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32769,7 +32769,7 @@
     "example": "Write it down.",
     "annotation": [
       {
-        "action_text": "Write down",
+        "action_text": "write down",
         "action": "write down",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32787,7 +32787,7 @@
     "example": "Write in your name and address, please.",
     "annotation": [
       {
-        "action_text": "Write",
+        "action_text": "write",
         "action": "write",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32805,7 +32805,7 @@
     "example": "Write in the latest data.",
     "annotation": [
       {
-        "action_text": "Write",
+        "action_text": "write",
         "action": "write",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32887,7 +32887,7 @@
     "example": "Write out the names, don't abbreviate them.",
     "annotation": [
       {
-        "action_text": "Write out",
+        "action_text": "write out",
         "action": "write out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -32923,7 +32923,7 @@
     "example": "Write out the new words.",
     "annotation": [
       {
-        "action_text": "Write out",
+        "action_text": "write out",
         "action": "write out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -33060,7 +33060,7 @@
     "example": "Zoom out the image now.",
     "annotation": [
       {
-        "action_text": "Zoom out",
+        "action_text": "zoom out",
         "action": "zoom out",
         "tense": "present",
         "tense_aspect": "simple",
@@ -33146,6 +33146,182 @@
         "object": null,
         "prep": "in",
         "prep_object": "a steady flow"
+      }
+    ]
+  },
+  {
+    "example": "She wanted me to listen to how beautifully they sing.",
+    "annotation": [
+      {
+        "action_text": "wanted",
+        "action": "want",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "She",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "He asked me to see how fast they run.",
+    "annotation": [
+      {
+        "action_text": "asked",
+        "action": "ask",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "He",
+        "object": "me",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "She asked me to listen to them laughing loudly.",
+    "annotation": [
+      {
+        "action_text": "asked",
+        "action": "ask",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "She",
+        "object": "me",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "He suggested that I pay attention to how beautifully they dance.",
+    "annotation": [
+      {
+        "action_text": "suggested",
+        "action": "suggest",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "He",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "He suggested that I pay attention to how well they do their work.",
+    "annotation": [
+      {
+        "action_text": "suggested",
+        "action": "suggest",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "He",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "She suggested that I pay attention to how responsibly they approach their duties.",
+    "annotation": [
+      {
+        "action_text": "suggested",
+        "action": "suggest",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "She",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "My wife asked me to look around to see the beauty of the evening dawn.",
+    "annotation": [
+      {
+        "action_text": "asked",
+        "action": "ask",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "My wife",
+        "object": "me",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "My fother wanted me to look around to see the beauty of the evening dawn.",
+    "annotation": [
+      {
+        "action_text": "wanted",
+        "action": "want",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "My fother",
+        "object": null,
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "She asked me to remember how to calculate this complex task.",
+    "annotation": [
+      {
+        "action_text": "asked",
+        "action": "ask",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "She",
+        "object": "me",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "My coach asked me to remember how to find the solution to this difficult problem.",
+    "annotation": [
+      {
+        "action_text": "asked",
+        "action": "ask",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "My coach",
+        "object": "me",
+        "prep": null,
+        "prep_object": null
+      }
+    ]
+  },
+  {
+    "example": "My husband asked me to remember the recipe I used to prepare this delicious dish.",
+    "annotation": [
+      {
+        "action_text": "asked",
+        "action": "ask",
+        "tense": "past",
+        "tense_aspect": "simple",
+        "time_relation": "past",
+        "subject": "My husband",
+        "object": "me",
+        "prep": null,
+        "prep_object": null
       }
     ]
   }
